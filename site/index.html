@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Secret Santa — Un cadeau, un secret</title><meta name="theme-color" content="#153e35"><meta name="description" content="La roulette Secret Santa de la famille : un tirage au sort, des envies et un budget pour un Noël plein de surprises."><style>:root{--ink:#183d33;--muted:#68736a;--cream:#f8f5ec;--red:#ba4b3b;--line:#dedfd4;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 0 12%,#e7eddf 0,transparent 36%),radial-gradient(ellipse at 100% 25%,#f0e0d0 0,transparent 30%);min-height:100vh}button,input,textarea{font:inherit}button,a,input,textarea{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:default;opacity:.5}a{color:inherit}header{max-width:1260px;margin:auto;padding:25px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);gap:16px}.brand{text-decoration:none;display:flex;align-items:center;gap:12px;font-size:36px}.brand>span{font-size:19px;font-weight:750;letter-spacing:-.6px}.tag{text-decoration:none;border:1px solid #cfd6c7;border-radius:99px;padding:10px 16px;font-size:12px;font-weight:600;background:#ffffff65}.tag:hover{background:white}main{max-width:1160px;margin:auto;padding:0 36px}.intro{padding:46px 0 30px;text-align:center;position:relative}.intro:before,.intro:after{content:'✧';position:absolute;color:#b99a5e;font-size:56px;top:100px;left:6%;transform:rotate(-15deg)}.intro:after{left:auto;right:5%;top:150px;font-size:35px}.eyebrow{font-size:10px;letter-spacing:2px;font-weight:750;color:#8b6b3c}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,6.2vw,76px);line-height:1.05;letter-spacing:-3px;font-weight:400;margin:18px 0}h1 em{font-weight:400;color:var(--red)}.intro p{font-size:14px;color:var(--muted);line-height:1.8;margin:20px 0 0}.journey{display:flex;justify-content:center;gap:36px;margin:4px 0 28px;font-size:11px;color:#617261}.journey span{padding:9px 0;border-bottom:2px solid #d5d9c9}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:24px;align-items:stretch}.panel{background:#fffef9;border:1px solid #e2e3d8;border-radius:22px;padding:26px;box-shadow:0 8px 24px #173d3306}.section-title{display:flex;align-items:center;gap:12px}h2{font-size:19px;font-weight:650;letter-spacing:-.5px;margin:8px 0}.step{display:grid;place-items:center;font-size:11px;border:1px solid #d4d8c8;border-radius:50%;width:30px;height:30px;flex-shrink:0;color:#70805e}.muted{font-size:12px;line-height:1.7;color:var(--muted)}form{display:flex;gap:8px;margin-top:24px}input,textarea{width:100%;min-width:0;border:1px solid #d8ddce;border-radius:10px;background:#f8f9f2;padding:12px;color:var(--ink);font-size:13px}input::placeholder,textarea::placeholder{color:#8c9385}.add{width:44px;flex-shrink:0;border:0;border-radius:10px;background:var(--ink);color:white;font-size:24px}ul{list-style:none;padding:0;margin:14px 0}#participants li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid #edf0e5;font-size:14px;overflow-wrap:anywhere}.avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#e7edde;color:#54704a;font-size:12px;font-weight:650;flex-shrink:0}li:nth-child(3n+2) .avatar{background:#f5e3da;color:#aa6450}li:nth-child(3n) .avatar{background:#f1e9cf;color:#987d42}.remove{border:0;background:none;color:#84917f;font-size:21px;margin-left:auto;min-width:32px;min-height:34px}.remove:hover{color:var(--red)}.rules{display:flex;align-items:center;gap:12px;background:#f1f4e9;border-radius:10px;padding:8px 13px;margin-top:20px;color:#657655}.rules p{font-size:11px;line-height:1.8}.text-button{border:0;background:none;color:var(--red);font-size:12px;padding:20px 0 0}.roulette-panel{background:#183f35;border:1px solid #285347;border-radius:24px;color:#fffaf0;text-align:center;overflow:hidden;min-width:0;padding:23px 30px 28px;position:relative;background-image:radial-gradient(ellipse at 50% 20%,#3d6252 0,transparent 65%);box-shadow:0 16px 30px #183f3514}.roulette-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.roulette-heading .eyebrow{color:#d2c39c;font-size:9px;letter-spacing:2px}.spark{font-size:23px;color:#dcc18b}.wheel-wrap{width:310px;height:310px;position:relative;margin:12px auto 25px;isolation:isolate}.wheel-wrap:before{content:'';position:absolute;inset:-9px;border:1px dashed #b79d665e;border-radius:50%}.wheel{position:relative;width:100%;height:100%;border:9px solid #eadfbd;border-radius:50%;overflow:hidden;box-shadow:0 0 0 4px #b1945b,0 18px 35px #0003;transition:transform 4s cubic-bezier(.14,.74,.12,1)}.wheel-label{position:absolute;top:50%;left:50%;width:50%;transform-origin:0 0;text-align:right;padding-right:23px;color:#fff9ec;font-size:16px;font-weight:650;text-shadow:0 1px 5px #0003;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff8e8;border:5px solid #d8bd86;border-radius:50%;width:76px;height:76px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;font-size:25px;box-shadow:0 3px 10px #0002;color:#7c6948}.wheel-center small{font-size:6px;font-weight:750;letter-spacing:1px}.pointer{position:absolute;z-index:2;top:-16px;left:calc(50% - 13px);border-left:13px solid transparent;border-right:13px solid transparent;border-top:30px solid #fff2d4;filter:drop-shadow(0 3px 2px #0005)}.action .eyebrow{color:#d7c28e;font-size:9px}.action h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.6px;font-size:28px;margin:12px 0}.action p{font-size:12px;line-height:1.7;color:#d0dbcf;min-height:21px;margin:10px auto;max-width:360px}.primary{border:0;border-radius:12px;padding:16px 24px;background:#bd5140;color:#fffaf2;font-size:13px;font-weight:650;box-shadow:0 4px 0 #903d32;transition:background .2s,translate .2s;min-height:48px}.primary:hover:enabled{background:#cf604d;translate:0 -1px}.action .primary{margin-top:10px;width:min(100%,310px)}.gift-settings{margin:36px 0 0;background:#fffef9;border:1px solid #e2e3d8;border-radius:22px;padding:28px}.gift-settings>.section-title h2{font-family:Georgia,serif;font-size:27px;font-weight:400}.gift-settings fieldset{border:0;padding:0;margin:0;min-width:0}.gift-settings label{display:block;font-size:11px;font-weight:650;line-height:1.6}.budget-bar{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#edf1e5;border-radius:14px;margin:22px 0;padding:18px 22px}.budget-bar label{font-size:15px}.budget-bar .muted{margin:5px 0 0}.money-input{display:flex;align-items:center;gap:10px;flex-shrink:0}.money-input input{width:125px;background:#fffef9;border-color:#c8d2ba;font-size:25px;padding:10px 15px}.money-input span{font-family:Georgia,serif;font-size:28px}.wish-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:22px}.wish-card{background:#faf8f1;border:1px solid #e6e4d8;border-radius:14px;padding:20px;min-width:0}.wish-card h3{font-family:Georgia,serif;font-size:25px;font-weight:400;color:#a34d3b;letter-spacing:-.5px;margin:0 0 18px;overflow-wrap:anywhere}.wish-card textarea{resize:vertical;min-height:100px;max-height:300px;margin:8px 0 16px;background:#fffefa;font-size:12px;line-height:1.7}.wish-card input{margin-top:8px;background:#fffefa;font-size:12px}.wish-card:focus-within{border-color:#b7c5a8}fieldset:disabled{opacity:.65}footer{text-align:center;color:#7c8975;font-size:8px;letter-spacing:1.6px;line-height:2;padding:30px 10px}footer span{color:#ac8950;padding:0 12px}dialog{border:1px solid #e1ddcd;border-radius:24px;padding:32px;color:var(--ink);background:#fffaf0;max-width:min(460px,92vw);max-height:90dvh;text-align:center;overflow-wrap:anywhere;box-shadow:0 25px 100px #0003}dialog::backdrop{background:#0d2922cf;backdrop-filter:blur(9px)}.gift{font-size:42px;margin-bottom:20px}dialog h2{font-family:Georgia,serif;font-size:24px;font-weight:400;margin-top:18px}dialog strong{display:block;font-family:Georgia,serif;font-size:52px;font-weight:400;color:var(--red);margin:16px 0}dialog p{font-size:12px;color:var(--muted);line-height:1.7}.budget-badge{background:#eaf0df;padding:12px;border-radius:9px;color:var(--ink)!important}.recipient-wishes{text-align:left;border-top:1px solid #e0dfd2;padding-top:10px;margin-top:18px}.recipient-wishes h3{font-size:12px;text-transform:uppercase;letter-spacing:1px}.recipient-wishes ul{max-height:160px;overflow:auto}.recipient-wishes li{font-size:13px;line-height:1.7;list-style:disc;margin-left:18px;padding:4px}.privacy{font-size:10px!important;margin-bottom:0}#error,#budget-error{font-size:12px;color:#a63d30;line-height:1.6}#error:empty,#budget-error:empty{display:none}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}:focus-visible{outline:3px solid #b69246;outline-offset:4px}#turn:focus{outline:none}@media(max-width:800px){main{padding:0 20px}.layout{grid-template-columns:270px minmax(0,1fr);gap:16px}.panel{padding:20px}.roulette-panel{padding:20px 14px}.wheel-wrap{width:260px;height:260px}.action h2{font-size:24px}.wish-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.journey{gap:20px}.intro:before,.intro:after{display:none}}@media(max-width:620px){header{padding:18px 20px}.brand>span{font-size:17px}.brand{font-size:30px}.tag{font-size:10px;padding:9px 11px}main{padding:0 16px}.intro{padding:34px 0 22px}h1{font-size:48px;letter-spacing:-2px}.intro p{font-size:12px;line-height:1.9}.eyebrow{font-size:8px;letter-spacing:1.5px}.journey{gap:12px;font-size:9px;margin:0 0 24px;flex-wrap:wrap}.layout{grid-template-columns:minmax(0,1fr);gap:18px}.panel{padding:22px}#participants{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:15px}#participants li{font-size:12px;gap:8px}.avatar{width:28px;height:28px}.remove{min-width:24px}.rules{margin-top:16px}.roulette-panel{padding:22px 18px 28px}.wheel-wrap{width:260px;height:260px;margin-bottom:28px}.gift-settings{padding:20px;margin-top:22px}.wish-grid{grid-template-columns:minmax(0,1fr)}.budget-bar{padding:16px;flex-wrap:wrap}.budget-bar label{font-size:13px}.gift-settings>.section-title h2{font-size:23px}dialog{padding:25px}footer{font-size:7px}.roulette-heading .eyebrow{font-size:8px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wheel{transition-duration:.01s}.primary{transition:none}}
+
+.wish-card summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:32px}.wish-card summary::-webkit-details-marker{display:none}.wish-card summary h3{margin:0}.wish-card summary span{font-size:10px;color:#7c805f;text-align:right;line-height:1.5}.wish-card[open] summary{padding-bottom:18px;margin-bottom:16px;border-bottom:1px solid #e1e2d5}.wish-card[open]{grid-row:span 2}.wish-grid{align-items:start}@media(max-width:620px){.wish-card{padding:17px}.wish-card[open]{grid-row:auto}}
+</style></head>
+<body><header><a href="./" class="brand">✳ <span>Secret Santa</span></a><a class="tag" href="#gift-title">✦ Budgets & souhaits</a></header>
+<main><section class="intro"><span class="eyebrow">LE RENDEZ-VOUS SECRET DE LA FAMILLE</span><h1>Un cadeau.<br>Un secret. <em>Votre Noël.</em></h1><p>Les petites attentions font les plus beaux cadeaux.<br>Réunissez la famille, faites tourner la roue… et gardez le secret.</p></section>
+<div class="journey"><span>01 · Réunissez la famille</span><span>02 · Notez vos envies</span><span>03 · Laissez faire le hasard</span></div><div class="layout"><section class="panel"><div class="section-title"><span class="step">01</span><h2>Les invités</h2></div><p class="muted">Tout le monde est là ? Ajustez la liste avant de commencer.</p><form id="add-form"><label class="sr-only" for="name">Prénom</label><input id="name" placeholder="Un prénom de plus…" maxlength="30" autocomplete="off"><button class="add" aria-label="Ajouter le participant">+</button></form><p id="error" role="alert"></p><ul id="participants"></ul><div class="rules"><span>✦</span><p>Chacun offre et reçoit un cadeau.<br>Ni doublon, ni tirage de soi-même.</p></div><button id="reset" class="text-button" hidden>↻ Recommencer le tirage</button></section>
+<section class="roulette-panel" aria-labelledby="turn"><div class="roulette-heading"><span class="eyebrow">LA ROUE DES PETITES ATTENTIONS</span><span class="spark">✧</span></div><div class="wheel-wrap"><div class="pointer"></div><div id="wheel" class="wheel"></div><div class="wheel-center">🎁<small>SECRET SANTA</small></div></div><div class="action"><span id="progress" class="eyebrow">LE HASARD FAIT BIEN LES CHOSES</span><h2 id="turn" tabindex="-1">On lance la magie ?</h2><p id="hint" aria-live="polite">Passez l’écran à la personne indiquée avant chaque tour.</p><button id="spin" class="primary">Lancer le tirage <span>↗</span></button></div></section></div>
+<section class="gift-settings" aria-labelledby="gift-title"><div class="section-title"><span class="step">02</span><h2 id="gift-title">La liste au Père Noël</h2></div><p class="muted">Un budget pour tous. Quelques indices pour chacun. Et la surprise reste entière.</p>
+<fieldset id="gift-fields"><legend class="sr-only">Budget et listes de souhaits</legend><div class="budget-bar"><div><label for="budget">Budget maximum commun</label><p class="muted">Par cadeau. Laissez le budget personnel vide pour utiliser ce plafond.</p></div><div class="money-input"><input id="budget" type="number" min="0" max="100000" step="0.01" value="50" required inputmode="decimal"><span>€</span></div></div><p id="budget-error" role="alert"></p><div id="wishlists" class="wish-grid"></div></fieldset><p id="save-status" class="muted" role="status">Enregistré sur cet appareil uniquement. Les souhaits sont visibles par tous ici.</p><p class="muted">Préparez vos envies avant le tirage. Les réglages seront ensuite verrouillés jusqu’au prochain tirage.</p></section>
+<footer>SECRET SANTA <span>✦</span> LES PLUS BEAUX CADEAUX COMMENCENT PAR UNE ATTENTION</footer></main>
+<dialog id="reveal"><div class="gift">🎁</div><span class="eyebrow" id="giver"></span><h2>Vous offrez un cadeau à…</h2><strong id="recipient"></strong><p id="reveal-budget" class="budget-badge"></p><section class="recipient-wishes" aria-labelledby="reveal-wishes-title"><h3 id="reveal-wishes-title">Ses idées cadeaux</h3><ul id="reveal-wishes"></ul></section><p>Gardez ce petit secret jusqu’à Noël.</p><button id="next" class="primary">Cacher et passer au suivant →</button><p class="privacy">Révélation sur cet écran uniquement, sans envoi de message.</p></dialog><script>function randomInt(max) {
+  const limit = 4294967296 - (4294967296 % max);
+  const buffer = new Uint32Array(1);
+  do { crypto.getRandomValues(buffer); } while (buffer[0] >= limit);
+  return buffer[0] % max;
+}
+function draw(names) {
+  if (names.length < 2 || names.length > 30 || new Set(names.map(n => n.trim().toLocaleLowerCase('fr'))).size !== names.length || names.some(n => !n.trim())) throw new Error('Utilisez entre 2 et 30 prénoms distincts.');
+  let result;
+  do {
+    result = names.map((_, i) => i);
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = randomInt(i + 1);
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+  } while (result.some((recipient, giver) => recipient === giver));
+  return result;
+}
+
+
+let names = ['Eva', 'Théo', 'Lea', 'Elio', 'Lucas', 'Ella'];
+let budget = 50;
+let wishes = Object.create(null), personalBudgets = Object.create(null);
+let storageWarning = '';
+const storageKey = 'family-secret-santa-settings-v1';
+try {
+  const saved = JSON.parse(localStorage.getItem(storageKey));
+  if (saved && Array.isArray(saved.names) && saved.names.length <= 30 && saved.names.every(n => typeof n === 'string' && n.trim() && n.length <= 30) && new Set(saved.names.map(n => n.toLocaleLowerCase('fr'))).size === saved.names.length) {
+    names = saved.names;
+    if (Number.isFinite(saved.budget) && saved.budget >= 0 && saved.budget <= 100000) budget = saved.budget;
+    for (const name of names) {
+      if (typeof saved.wishes?.[name] === 'string') wishes[name] = saved.wishes[name].slice(0, 1000);
+      const amount = saved.personalBudgets?.[name];
+      if (Number.isFinite(amount) && amount >= 0 && amount <= 100000) personalBudgets[name] = amount;
+    }
+  }
+} catch { storageWarning = 'Sauvegarde locale indisponible : gardez cet onglet ouvert.'; }
+const euros = value => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(value);
+function saveSettings() {
+  try {
+    localStorage.setItem(storageKey, JSON.stringify({ names, budget, wishes, personalBudgets }));
+    $('save-status').textContent = 'Enregistré sur cet appareil uniquement. Les souhaits sont visibles par tous ici.';
+  } catch { $('save-status').textContent = 'Sauvegarde locale indisponible : vos modifications restent dans cet onglet uniquement.'; }
+}
+function renderGiftSettings() {
+  $('budget').value = budget;
+  $('gift-fields').disabled = !!assignments;
+  $('wishlists').replaceChildren();
+  names.forEach((name, i) => {
+    const card = document.createElement('details'); card.className = 'wish-card';
+    const summary = document.createElement('summary');
+    const count = document.createElement('span');
+    const updateCount = () => { const n = (wishes[name] || '').split('\n').filter(s => s.trim()).length; count.textContent = n ? `${n} idée${n > 1 ? 's' : ''} · Modifier +` : 'Ajouter mes envies +'; };
+    updateCount();
+    const heading = document.createElement('h3'); heading.textContent = name;
+    const label = document.createElement('label'); label.htmlFor = `wishes-${i}`; label.textContent = 'Ma liste de souhaits';
+    const textarea = document.createElement('textarea'); textarea.id = label.htmlFor; textarea.maxLength = 1000; textarea.rows = 4; textarea.placeholder = 'Un livre, un jeu, une sortie…\nUne idée par ligne'; textarea.value = wishes[name] || '';
+    textarea.oninput = () => { wishes[name] = textarea.value; updateCount(); saveSettings(); };
+    const amountLabel = document.createElement('label'); amountLabel.htmlFor = `amount-${i}`; amountLabel.textContent = 'Mon maximum pour le cadeau que j’offre (€)';
+    const amount = document.createElement('input'); amount.id = amountLabel.htmlFor; amount.type = 'number'; amount.min = '0'; amount.max = '100000'; amount.step = '0.01'; amount.inputMode = 'decimal'; amount.placeholder = `Budget commun : ${euros(budget)}`; amount.value = personalBudgets[name] ?? '';
+    amount.oninput = () => {
+      amount.setCustomValidity('');
+      if (!amount.validity.valid) { amount.setCustomValidity('Choisissez un montant entre 0 et 100 000 €, avec au maximum deux décimales.'); return; }
+      if (amount.value === '') delete personalBudgets[name]; else personalBudgets[name] = amount.valueAsNumber;
+      saveSettings();
+    };
+    summary.append(heading, count); card.append(summary, label, textarea, amountLabel, amount); $('wishlists').append(card);
+  });
+}
+let assignments = null, current = 0, rotation = 0, spinning = false;
+const $ = id => document.getElementById(id);
+const colors = ['#2c6151', '#c45b4c', '#ac843d', '#568475', '#9e3f38', '#7d704d'];
+function render() {
+  renderGiftSettings();
+  $('participants').replaceChildren();
+  names.forEach((name, i) => {
+    const li = document.createElement('li');
+    const avatar = document.createElement('span'); avatar.className = 'avatar'; avatar.textContent = name[0].toUpperCase();
+    const label = document.createElement('span'); label.textContent = name;
+    const remove = document.createElement('button'); remove.className = 'remove'; remove.textContent = '×'; remove.setAttribute('aria-label', `Retirer ${name}`); remove.disabled = !!assignments;
+    remove.onclick = () => { names.splice(i, 1); delete wishes[name]; delete personalBudgets[name]; saveSettings(); render(); };
+    li.append(avatar, label, remove); $('participants').append(li);
+  });
+  $('wheel').replaceChildren();
+  $('wheel').style.background = names.length ? `conic-gradient(${names.map((_, i) => `${colors[i % colors.length]} ${i * 360 / names.length}deg ${(i + 1) * 360 / names.length}deg`).join(',')})` : '#dce1d4';
+  names.forEach((name, i) => {
+    const label = document.createElement('span'); label.className = 'wheel-label'; label.textContent = name;
+    label.style.transform = `rotate(${(i + .5) * 360 / names.length - 90}deg) translateY(-50%)`;
+    label.style.fontSize = names.length > 12 ? '10px' : '15px'; $('wheel').append(label);
+  });
+  $('name').disabled = !!assignments; document.querySelector('.add').disabled = !!assignments;
+  $('spin').disabled = names.length < 2 || current >= names.length || spinning;
+  $('reset').hidden = !assignments;
+  $('turn').textContent = assignments ? current < names.length ? `À vous, ${names[current]} !` : 'Tous les secrets sont distribués !' : 'Un petit tour, un grand secret.';
+  $('progress').textContent = assignments ? `${Math.min(current + 1, names.length)} / ${names.length} · LE TIRAGE EN FAMILLE` : `${names.length} PARTICIPANTS · AUCUN DOUBLON`;
+  $('spin').textContent = assignments ? spinning ? 'La magie opère…' : current >= names.length ? 'Les secrets sont distribués ✓' : 'Révéler mon destinataire →' : 'Préparer notre tirage →';
+  $('hint').textContent = current >= names.length && assignments ? 'Rendez-vous à Noël pour découvrir les cadeaux.' : assignments ? `Passez l’écran à ${names[current]}. Les autres, on ferme les yeux !` : 'Vérifiez vos budgets et vos souhaits ci-dessous, puis préparez le tirage.';
+}
+$('add-form').onsubmit = e => {
+  e.preventDefault(); if (assignments) return;
+  const name = $('name').value.trim().normalize('NFC');
+  if (!name) { $('error').textContent = 'Saisissez un prénom.'; return; }
+  if (names.some(n => n.toLocaleLowerCase('fr') === name.toLocaleLowerCase('fr'))) { $('error').textContent = 'Ce prénom est déjà dans la famille. Ajoutez une initiale si besoin.'; return; }
+  if (names.length >= 30) { $('error').textContent = 'La roulette accepte au maximum 30 personnes.'; return; }
+  names.push(name); saveSettings(); $('name').value = ''; $('error').textContent = ''; render(); $('name').focus();
+};
+$('spin').onclick = () => {
+  if (spinning || current >= names.length || names.length < 2) return;
+  if (!assignments) { const invalid = [...$('gift-fields').querySelectorAll('input')].find(input => !input.checkValidity()); if (invalid) { const card = invalid.closest('details'); if (card) card.open = true; invalid.reportValidity(); return; } assignments = draw(names); render(); $('turn').focus(); $('turn').scrollIntoView({block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'}); return; }
+  spinning = true; render();
+  const target = assignments[current];
+  const destination = (360 - (target + .5) * 360 / names.length) % 360;
+  rotation += 5 * 360 + ((destination - rotation % 360 + 360) % 360);
+  $('wheel').style.transform = `rotate(${rotation}deg)`;
+  const duration = matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 4100;
+  setTimeout(() => {
+    spinning = false; $('giver').textContent = `LE PETIT SECRET DE ${names[current].toLocaleUpperCase('fr')}`;
+    $('recipient').textContent = names[target];
+    $('reveal-budget').textContent = `Votre budget maximum : ${euros(personalBudgets[names[current]] ?? budget)}`;
+    $('reveal-wishes').replaceChildren();
+    const ideas = (wishes[names[target]] || '').split('\n').map(s => s.trim()).filter(Boolean);
+    for (const idea of ideas.length ? ideas : ['Pas encore de souhait : une jolie surprise sera la bienvenue !']) {
+      const li = document.createElement('li'); li.textContent = idea; $('reveal-wishes').append(li);
+    }
+    $('reveal').showModal(); $('next').focus();
+  }, duration);
+};
+function next() { $('reveal').close(); $('recipient').textContent = ''; $('reveal-budget').textContent = ''; $('reveal-wishes').replaceChildren(); current++; render(); $('spin').focus(); }
+$('next').onclick = next;
+$('reveal').addEventListener('cancel', e => { e.preventDefault(); next(); });
+$('reset').onclick = () => {
+  if (spinning || !confirm('Effacer ce tirage et recommencer pour toute la famille ?')) return;
+  assignments = null; current = 0; $('error').textContent = ''; render();
+};
+$('budget').oninput = () => {
+  const input = $('budget');
+  if (!input.validity.valid) { $('budget-error').textContent = 'Indiquez un budget entre 0 et 100 000 €, avec au maximum deux décimales.'; return; }
+  budget = input.valueAsNumber; $('budget-error').textContent = ''; saveSettings();
+  names.forEach((_, i) => { $(`amount-${i}`).placeholder = `Budget commun : ${euros(budget)}`; });
+};
+render();
+if (storageWarning) $('save-status').textContent = storageWarning;
+</script></body></html>

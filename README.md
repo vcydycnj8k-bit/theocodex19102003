@@ -24,3 +24,10 @@ Le budget maximum commun est de 50 € par défaut. Chaque participant peut déf
 Chaque participant dispose d’une liste de souhaits (une idée par ligne, 1 000 caractères maximum). À chaque révélation, le Secret Santa voit les souhaits de son destinataire et son propre budget maximum. Les budgets et les souhaits sont verrouillés pendant le tirage ; recommencer le tirage les conserve et permet de les modifier.
 
 Les participants, budgets et souhaits sont sauvegardés dans le stockage local du navigateur. Ils restent sur cet appareil et ne sont pas synchronisés entre téléphones. Les souhaits sont visibles par toutes les personnes utilisant cette page. En cas de stockage indisponible, un message le signale et les réglages restent seulement dans l’onglet. Les attributions ne sont jamais sauvegardées et disparaissent au rechargement.
+
+
+## Version autonome pour Netlify
+
+Exécuter `python3 tools/build_release.py` pour générer `site/index.html` : ce fichier contient tous les styles et scripts, sans requête externe. Le dossier `site` est prêt à être déposé dans Netlify. Le ZIP `secret-santa.zip` contient ce même index à sa racine, ainsi que robots.txt et _headers. Après extraction, déposer le dossier contenant index.html dans la section Deploys du site Netlify existant pour conserver son URL. Aucun build n’est nécessaire.
+
+Le code dans la racine du dépôt reste la version de développement avec fichiers séparés. La version autonome est générée à partir de ces sources ; ne pas la modifier directement.

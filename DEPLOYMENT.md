@@ -5,7 +5,7 @@ L’environnement cloud publié est un environnement de développement : il ne c
 ## Paquet à déployer
 
 Depuis le dépôt, exécuter `python3 tools/build_release.py`.
-Le dossier `/workspace/secret-santa-release` contient les seuls fichiers publics : index.html, style.css, app.js, draw.mjs, robots.txt et _headers.
+Le dossier `/workspace/secret-santa-release` contient les seuls fichiers publics : index.html autonome (styles et scripts intégrés), robots.txt et _headers. Une copie identique est générée dans le dossier site du dépôt.
 L’archive `/workspace/secret-santa.zip` a index.html à la racine. Aucun dossier Git, test, document interne, stockage navigateur ou secret n’est inclus. Les six prénoms par défaut font partie du code public.
 
 Aucune compilation, base de données, fonction serveur ni clé API n’est nécessaire. Servir en HTTPS avec un hébergeur statique qui reconnaît les modules .mjs comme JavaScript. Ne pas publier l’ensemble du dépôt comme répertoire web.
@@ -44,7 +44,14 @@ La même URL charge l’application sur ordinateur et téléphone, mais les part
 - Trois tests de tirage réussis, dont 10 000 permutations sans doublon ni auto-attribution.
 - Paquet public servi localement et contrôlé avec Chromium : six révélations, budgets commun et personnel, souhaits du bon destinataire, refus des budgets invalides, sauvegarde après rechargement, réinitialisation et aucune erreur JavaScript.
 - Affichage contrôlé à 320 et 390 pixels de largeur, sans débordement horizontal.
-- Réponses HTTP 200 et types MIME corrects pour HTML, CSS, JS et MJS.
+- Réponses HTTP 200 et types MIME corrects pour les sources. Le paquet autonome ne charge aucun CSS ni module externe.
 - Deux contextes de navigateur indépendants confirment que les souhaits ne se synchronisent pas.
 
 Restent à vérifier après choix du fournisseur : URL HTTPS réelle sur les appareils, protection d’accès et facturation. Aucun compte d’hébergement n’a été utilisé et aucune publication Internet n’a été effectuée.
+
+
+## Refonte et paquet autonome
+
+La présentation a été revue avec une roulette sur fond vert sapin, des boutons de préparation et de révélation distincts, et une mise en page adaptée aux petits écrans. Le paquet autonome évite la dépendance aux chargements séparés de style.css, app.js et draw.mjs. Son parcours complet est vérifié via HTTP local. L’ouverture file:// n’a pas pu être testée, car le navigateur de cet environnement bloque ce protocole.
+
+L’accès à https://stellar-bienenstitch-be8e88.netlify.app depuis cet environnement renvoie un refus du proxy avant la connexion au site. Il ne s’agit pas d’un diagnostic du fonctionnement du site Netlify. Le domaine exact a été ajouté au brouillon réseau, sans remplacer les presets. L’application du réglage par les paramètres de l’environnement est nécessaire pour inspecter cette URL. La nouvelle version n’a pas été déposée dans le compte Netlify du propriétaire.

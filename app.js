@@ -28,11 +28,15 @@ function renderGiftSettings() {
   $('gift-fields').disabled = !!assignments;
   $('wishlists').replaceChildren();
   names.forEach((name, i) => {
-    const card = document.createElement('div'); card.className = 'wish-card';
+    const card = document.createElement('details'); card.className = 'wish-card';
+    const summary = document.createElement('summary');
+    const count = document.createElement('span');
+    const updateCount = () => { const n = (wishes[name] || '').split('\n').filter(s => s.trim()).length; count.textContent = n ? `${n} idée${n > 1 ? 's' : ''} · Modifier +` : 'Ajouter mes envies +'; };
+    updateCount();
     const heading = document.createElement('h3'); heading.textContent = name;
     const label = document.createElement('label'); label.htmlFor = `wishes-${i}`; label.textContent = 'Ma liste de souhaits';
     const textarea = document.createElement('textarea'); textarea.id = label.htmlFor; textarea.maxLength = 1000; textarea.rows = 4; textarea.placeholder = 'Un livre, un jeu, une sortie…\nUne idée par ligne'; textarea.value = wishes[name] || '';
-    textarea.oninput = () => { wishes[name] = textarea.value; saveSettings(); };
+    textarea.oninput = () => { wishes[name] = textarea.value; updateCount(); saveSettings(); };
     const amountLabel = document.createElement('label'); amountLabel.htmlFor = `amount-${i}`; amountLabel.textContent = 'Mon maximum pour le cadeau que j’offre (€)';
     const amount = document.createElement('input'); amount.id = amountLabel.htmlFor; amount.type = 'number'; amount.min = '0'; amount.max = '100000'; amount.step = '0.01'; amount.inputMode = 'decimal'; amount.placeholder = `Budget commun : ${euros(budget)}`; amount.value = personalBudgets[name] ?? '';
     amount.oninput = () => {
@@ -41,12 +45,12 @@ function renderGiftSettings() {
       if (amount.value === '') delete personalBudgets[name]; else personalBudgets[name] = amount.valueAsNumber;
       saveSettings();
     };
-    card.append(heading, label, textarea, amountLabel, amount); $('wishlists').append(card);
+    summary.append(heading, count); card.append(summary, label, textarea, amountLabel, amount); $('wishlists').append(card);
   });
 }
 let assignments = null, current = 0, rotation = 0, spinning = false;
 const $ = id => document.getElementById(id);
-const colors = ['#355646', '#b55b47', '#c2aa70', '#7c8e73', '#d2967c', '#8c9c89'];
+const colors = ['#2c6151', '#c45b4c', '#ac843d', '#568475', '#9e3f38', '#7d704d'];
 function render() {
   renderGiftSettings();
   $('participants').replaceChildren();
@@ -68,10 +72,10 @@ function render() {
   $('name').disabled = !!assignments; document.querySelector('.add').disabled = !!assignments;
   $('spin').disabled = names.length < 2 || current >= names.length || spinning;
   $('reset').hidden = !assignments;
-  $('turn').textContent = assignments ? current < names.length ? `À vous, ${names[current]} !` : 'Tous les secrets sont distribués !' : 'On lance la magie ?';
-  $('progress').textContent = assignments ? `${Math.min(current + 1, names.length)} / ${names.length} · LE TIRAGE EN FAMILLE` : 'LE HASARD FAIT BIEN LES CHOSES';
-  $('spin').textContent = assignments ? 'Faire tourner la roulette ↗' : 'Lancer le tirage ↗';
-  $('hint').textContent = current >= names.length && assignments ? 'Rendez-vous à Noël pour découvrir les cadeaux.' : 'Passez l’écran à la personne indiquée avant chaque tour.';
+  $('turn').textContent = assignments ? current < names.length ? `À vous, ${names[current]} !` : 'Tous les secrets sont distribués !' : 'Un petit tour, un grand secret.';
+  $('progress').textContent = assignments ? `${Math.min(current + 1, names.length)} / ${names.length} · LE TIRAGE EN FAMILLE` : `${names.length} PARTICIPANTS · AUCUN DOUBLON`;
+  $('spin').textContent = assignments ? spinning ? 'La magie opère…' : current >= names.length ? 'Les secrets sont distribués ✓' : 'Révéler mon destinataire →' : 'Préparer notre tirage →';
+  $('hint').textContent = current >= names.length && assignments ? 'Rendez-vous à Noël pour découvrir les cadeaux.' : assignments ? `Passez l’écran à ${names[current]}. Les autres, on ferme les yeux !` : 'Vérifiez vos budgets et vos souhaits ci-dessous, puis préparez le tirage.';
 }
 $('add-form').onsubmit = e => {
   e.preventDefault(); if (assignments) return;
@@ -83,7 +87,7 @@ $('add-form').onsubmit = e => {
 };
 $('spin').onclick = () => {
   if (spinning || current >= names.length || names.length < 2) return;
-  if (!assignments) { if (![...$('gift-fields').querySelectorAll('input')].every(input => input.reportValidity())) return; assignments = draw(names); render(); return; }
+  if (!assignments) { const invalid = [...$('gift-fields').querySelectorAll('input')].find(input => !input.checkValidity()); if (invalid) { const card = invalid.closest('details'); if (card) card.open = true; invalid.reportValidity(); return; } assignments = draw(names); render(); $('turn').focus(); $('turn').scrollIntoView({block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'}); return; }
   spinning = true; render();
   const target = assignments[current];
   const destination = (360 - (target + .5) * 360 / names.length) % 360;
