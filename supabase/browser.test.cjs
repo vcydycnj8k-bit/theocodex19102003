@@ -7,7 +7,7 @@ const fs=require('node:fs');const http=require('node:http');const assert=require
  const accounts=new Map(),tokens=new Map();let queue=Promise.resolve();
  const serialize=fn=>{const p=queue.then(fn);queue=p.catch(()=>{});return p;};
  const rpc=async(id,name,args)=>serialize(async()=>{await db.exec('reset role');await db.query("select set_config('request.jwt.claim.sub',$1,false)",[id]);await db.exec('set role authenticated');const keys=Object.keys(args);return (await db.query(`select public.santa_${name}(${keys.map((k,i)=>`${k} => $${i+1}`).join(',')}) as data`,Object.values(args))).rows[0].data;});
- const html=fs.readFileSync(__dirname+'/../site/index.html','utf8').replace("window.SANTA_CONFIG = { url: '', publishableKey: '' };","window.SANTA_CONFIG = { url: 'https://test-project.supabase.co', publishableKey: 'sb_publishable_test' };");
+ const html=fs.readFileSync(__dirname+'/../site/index.html','utf8').replace(/window\.SANTA_CONFIG\s*=\s*\{[^;]*\};/,"window.SANTA_CONFIG = { url: 'https://test-project.supabase.co', publishableKey: 'sb_publishable_test' };");
  const server=http.createServer((req,res)=>{res.writeHead(200,{'Content-Type':'text/html'});res.end(html)});await new Promise(r=>server.listen(3099,'127.0.0.1',r));
  const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});const errors=[];const base='http://127.0.0.1:3099';
  async function context(){const c=await browser.newContext({reducedMotion:'reduce',viewport:{width:390,height:844}});await c.route('https://test-project.supabase.co/**',async route=>{
