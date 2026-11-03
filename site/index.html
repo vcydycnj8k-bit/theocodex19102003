@@ -1,155 +1,155 @@
-<!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Secret Santa — Un cadeau, un secret</title><meta name="theme-color" content="#153e35"><meta name="description" content="La roulette Secret Santa de la famille : un tirage au sort, des envies et un budget pour un Noël plein de surprises."><style>:root{--ink:#183d33;--muted:#68736a;--cream:#f8f5ec;--red:#ba4b3b;--line:#dedfd4;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 0 12%,#e7eddf 0,transparent 36%),radial-gradient(ellipse at 100% 25%,#f0e0d0 0,transparent 30%);min-height:100vh}button,input,textarea{font:inherit}button,a,input,textarea{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:default;opacity:.5}a{color:inherit}header{max-width:1260px;margin:auto;padding:25px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);gap:16px}.brand{text-decoration:none;display:flex;align-items:center;gap:12px;font-size:36px}.brand>span{font-size:19px;font-weight:750;letter-spacing:-.6px}.tag{text-decoration:none;border:1px solid #cfd6c7;border-radius:99px;padding:10px 16px;font-size:12px;font-weight:600;background:#ffffff65}.tag:hover{background:white}main{max-width:1160px;margin:auto;padding:0 36px}.intro{padding:46px 0 30px;text-align:center;position:relative}.intro:before,.intro:after{content:'✧';position:absolute;color:#b99a5e;font-size:56px;top:100px;left:6%;transform:rotate(-15deg)}.intro:after{left:auto;right:5%;top:150px;font-size:35px}.eyebrow{font-size:10px;letter-spacing:2px;font-weight:750;color:#8b6b3c}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,6.2vw,76px);line-height:1.05;letter-spacing:-3px;font-weight:400;margin:18px 0}h1 em{font-weight:400;color:var(--red)}.intro p{font-size:14px;color:var(--muted);line-height:1.8;margin:20px 0 0}.journey{display:flex;justify-content:center;gap:36px;margin:4px 0 28px;font-size:11px;color:#617261}.journey span{padding:9px 0;border-bottom:2px solid #d5d9c9}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:24px;align-items:stretch}.panel{background:#fffef9;border:1px solid #e2e3d8;border-radius:22px;padding:26px;box-shadow:0 8px 24px #173d3306}.section-title{display:flex;align-items:center;gap:12px}h2{font-size:19px;font-weight:650;letter-spacing:-.5px;margin:8px 0}.step{display:grid;place-items:center;font-size:11px;border:1px solid #d4d8c8;border-radius:50%;width:30px;height:30px;flex-shrink:0;color:#70805e}.muted{font-size:12px;line-height:1.7;color:var(--muted)}form{display:flex;gap:8px;margin-top:24px}input,textarea{width:100%;min-width:0;border:1px solid #d8ddce;border-radius:10px;background:#f8f9f2;padding:12px;color:var(--ink);font-size:13px}input::placeholder,textarea::placeholder{color:#8c9385}.add{width:44px;flex-shrink:0;border:0;border-radius:10px;background:var(--ink);color:white;font-size:24px}ul{list-style:none;padding:0;margin:14px 0}#participants li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid #edf0e5;font-size:14px;overflow-wrap:anywhere}.avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#e7edde;color:#54704a;font-size:12px;font-weight:650;flex-shrink:0}li:nth-child(3n+2) .avatar{background:#f5e3da;color:#aa6450}li:nth-child(3n) .avatar{background:#f1e9cf;color:#987d42}.remove{border:0;background:none;color:#84917f;font-size:21px;margin-left:auto;min-width:32px;min-height:34px}.remove:hover{color:var(--red)}.rules{display:flex;align-items:center;gap:12px;background:#f1f4e9;border-radius:10px;padding:8px 13px;margin-top:20px;color:#657655}.rules p{font-size:11px;line-height:1.8}.text-button{border:0;background:none;color:var(--red);font-size:12px;padding:20px 0 0}.roulette-panel{background:#183f35;border:1px solid #285347;border-radius:24px;color:#fffaf0;text-align:center;overflow:hidden;min-width:0;padding:23px 30px 28px;position:relative;background-image:radial-gradient(ellipse at 50% 20%,#3d6252 0,transparent 65%);box-shadow:0 16px 30px #183f3514}.roulette-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.roulette-heading .eyebrow{color:#d2c39c;font-size:9px;letter-spacing:2px}.spark{font-size:23px;color:#dcc18b}.wheel-wrap{width:310px;height:310px;position:relative;margin:12px auto 25px;isolation:isolate}.wheel-wrap:before{content:'';position:absolute;inset:-9px;border:1px dashed #b79d665e;border-radius:50%}.wheel{position:relative;width:100%;height:100%;border:9px solid #eadfbd;border-radius:50%;overflow:hidden;box-shadow:0 0 0 4px #b1945b,0 18px 35px #0003;transition:transform 4s cubic-bezier(.14,.74,.12,1)}.wheel-label{position:absolute;top:50%;left:50%;width:50%;transform-origin:0 0;text-align:right;padding-right:23px;color:#fff9ec;font-size:16px;font-weight:650;text-shadow:0 1px 5px #0003;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff8e8;border:5px solid #d8bd86;border-radius:50%;width:76px;height:76px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;font-size:25px;box-shadow:0 3px 10px #0002;color:#7c6948}.wheel-center small{font-size:6px;font-weight:750;letter-spacing:1px}.pointer{position:absolute;z-index:2;top:-16px;left:calc(50% - 13px);border-left:13px solid transparent;border-right:13px solid transparent;border-top:30px solid #fff2d4;filter:drop-shadow(0 3px 2px #0005)}.action .eyebrow{color:#d7c28e;font-size:9px}.action h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.6px;font-size:28px;margin:12px 0}.action p{font-size:12px;line-height:1.7;color:#d0dbcf;min-height:21px;margin:10px auto;max-width:360px}.primary{border:0;border-radius:12px;padding:16px 24px;background:#bd5140;color:#fffaf2;font-size:13px;font-weight:650;box-shadow:0 4px 0 #903d32;transition:background .2s,translate .2s;min-height:48px}.primary:hover:enabled{background:#cf604d;translate:0 -1px}.action .primary{margin-top:10px;width:min(100%,310px)}.gift-settings{margin:36px 0 0;background:#fffef9;border:1px solid #e2e3d8;border-radius:22px;padding:28px}.gift-settings>.section-title h2{font-family:Georgia,serif;font-size:27px;font-weight:400}.gift-settings fieldset{border:0;padding:0;margin:0;min-width:0}.gift-settings label{display:block;font-size:11px;font-weight:650;line-height:1.6}.budget-bar{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#edf1e5;border-radius:14px;margin:22px 0;padding:18px 22px}.budget-bar label{font-size:15px}.budget-bar .muted{margin:5px 0 0}.money-input{display:flex;align-items:center;gap:10px;flex-shrink:0}.money-input input{width:125px;background:#fffef9;border-color:#c8d2ba;font-size:25px;padding:10px 15px}.money-input span{font-family:Georgia,serif;font-size:28px}.wish-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:22px}.wish-card{background:#faf8f1;border:1px solid #e6e4d8;border-radius:14px;padding:20px;min-width:0}.wish-card h3{font-family:Georgia,serif;font-size:25px;font-weight:400;color:#a34d3b;letter-spacing:-.5px;margin:0 0 18px;overflow-wrap:anywhere}.wish-card textarea{resize:vertical;min-height:100px;max-height:300px;margin:8px 0 16px;background:#fffefa;font-size:12px;line-height:1.7}.wish-card input{margin-top:8px;background:#fffefa;font-size:12px}.wish-card:focus-within{border-color:#b7c5a8}fieldset:disabled{opacity:.65}footer{text-align:center;color:#7c8975;font-size:8px;letter-spacing:1.6px;line-height:2;padding:30px 10px}footer span{color:#ac8950;padding:0 12px}dialog{border:1px solid #e1ddcd;border-radius:24px;padding:32px;color:var(--ink);background:#fffaf0;max-width:min(460px,92vw);max-height:90dvh;text-align:center;overflow-wrap:anywhere;box-shadow:0 25px 100px #0003}dialog::backdrop{background:#0d2922cf;backdrop-filter:blur(9px)}.gift{font-size:42px;margin-bottom:20px}dialog h2{font-family:Georgia,serif;font-size:24px;font-weight:400;margin-top:18px}dialog strong{display:block;font-family:Georgia,serif;font-size:52px;font-weight:400;color:var(--red);margin:16px 0}dialog p{font-size:12px;color:var(--muted);line-height:1.7}.budget-badge{background:#eaf0df;padding:12px;border-radius:9px;color:var(--ink)!important}.recipient-wishes{text-align:left;border-top:1px solid #e0dfd2;padding-top:10px;margin-top:18px}.recipient-wishes h3{font-size:12px;text-transform:uppercase;letter-spacing:1px}.recipient-wishes ul{max-height:160px;overflow:auto}.recipient-wishes li{font-size:13px;line-height:1.7;list-style:disc;margin-left:18px;padding:4px}.privacy{font-size:10px!important;margin-bottom:0}#error,#budget-error{font-size:12px;color:#a63d30;line-height:1.6}#error:empty,#budget-error:empty{display:none}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}:focus-visible{outline:3px solid #b69246;outline-offset:4px}#turn:focus{outline:none}@media(max-width:800px){main{padding:0 20px}.layout{grid-template-columns:270px minmax(0,1fr);gap:16px}.panel{padding:20px}.roulette-panel{padding:20px 14px}.wheel-wrap{width:260px;height:260px}.action h2{font-size:24px}.wish-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.journey{gap:20px}.intro:before,.intro:after{display:none}}@media(max-width:620px){header{padding:18px 20px}.brand>span{font-size:17px}.brand{font-size:30px}.tag{font-size:10px;padding:9px 11px}main{padding:0 16px}.intro{padding:34px 0 22px}h1{font-size:48px;letter-spacing:-2px}.intro p{font-size:12px;line-height:1.9}.eyebrow{font-size:8px;letter-spacing:1.5px}.journey{gap:12px;font-size:9px;margin:0 0 24px;flex-wrap:wrap}.layout{grid-template-columns:minmax(0,1fr);gap:18px}.panel{padding:22px}#participants{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:15px}#participants li{font-size:12px;gap:8px}.avatar{width:28px;height:28px}.remove{min-width:24px}.rules{margin-top:16px}.roulette-panel{padding:22px 18px 28px}.wheel-wrap{width:260px;height:260px;margin-bottom:28px}.gift-settings{padding:20px;margin-top:22px}.wish-grid{grid-template-columns:minmax(0,1fr)}.budget-bar{padding:16px;flex-wrap:wrap}.budget-bar label{font-size:13px}.gift-settings>.section-title h2{font-size:23px}dialog{padding:25px}footer{font-size:7px}.roulette-heading .eyebrow{font-size:8px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wheel{transition-duration:.01s}.primary{transition:none}}
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#153e35"><title>Secret Santa — Notre Noël en famille</title><style>:root{--ink:#183d33;--muted:#68736a;--cream:#f8f5ec;--red:#ba4b3b;--line:#dedfd4;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 0 12%,#e7eddf 0,transparent 36%),radial-gradient(ellipse at 100% 25%,#f0e0d0 0,transparent 30%);min-height:100vh}button,input,textarea{font:inherit}button,a,input,textarea{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:default;opacity:.5}a{color:inherit}header{max-width:1260px;margin:auto;padding:25px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);gap:16px}.brand{text-decoration:none;display:flex;align-items:center;gap:12px;font-size:36px}.brand>span{font-size:19px;font-weight:750;letter-spacing:-.6px}.tag{text-decoration:none;border:1px solid #cfd6c7;border-radius:99px;padding:10px 16px;font-size:12px;font-weight:600;background:#ffffff65}.tag:hover{background:white}main{max-width:1160px;margin:auto;padding:0 36px}.intro{padding:46px 0 30px;text-align:center;position:relative}.intro:before,.intro:after{content:'✧';position:absolute;color:#b99a5e;font-size:56px;top:100px;left:6%;transform:rotate(-15deg)}.intro:after{left:auto;right:5%;top:150px;font-size:35px}.eyebrow{font-size:10px;letter-spacing:2px;font-weight:750;color:#8b6b3c}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,6.2vw,76px);line-height:1.05;letter-spacing:-3px;font-weight:400;margin:18px 0}h1 em{font-weight:400;color:var(--red)}.intro p{font-size:14px;color:var(--muted);line-height:1.8;margin:20px 0 0}.journey{display:flex;justify-content:center;gap:36px;margin:4px 0 28px;font-size:11px;color:#617261}.journey span{padding:9px 0;border-bottom:2px solid #d5d9c9}.layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:24px;align-items:stretch}.panel{background:#fffef9;border:1px solid #e2e3d8;border-radius:22px;padding:26px;box-shadow:0 8px 24px #173d3306}.section-title{display:flex;align-items:center;gap:12px}h2{font-size:19px;font-weight:650;letter-spacing:-.5px;margin:8px 0}.step{display:grid;place-items:center;font-size:11px;border:1px solid #d4d8c8;border-radius:50%;width:30px;height:30px;flex-shrink:0;color:#70805e}.muted{font-size:12px;line-height:1.7;color:var(--muted)}form{display:flex;gap:8px;margin-top:24px}input,textarea{width:100%;min-width:0;border:1px solid #d8ddce;border-radius:10px;background:#f8f9f2;padding:12px;color:var(--ink);font-size:13px}input::placeholder,textarea::placeholder{color:#8c9385}.add{width:44px;flex-shrink:0;border:0;border-radius:10px;background:var(--ink);color:white;font-size:24px}ul{list-style:none;padding:0;margin:14px 0}#participants li{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid #edf0e5;font-size:14px;overflow-wrap:anywhere}.avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#e7edde;color:#54704a;font-size:12px;font-weight:650;flex-shrink:0}li:nth-child(3n+2) .avatar{background:#f5e3da;color:#aa6450}li:nth-child(3n) .avatar{background:#f1e9cf;color:#987d42}.remove{border:0;background:none;color:#84917f;font-size:21px;margin-left:auto;min-width:32px;min-height:34px}.remove:hover{color:var(--red)}.rules{display:flex;align-items:center;gap:12px;background:#f1f4e9;border-radius:10px;padding:8px 13px;margin-top:20px;color:#657655}.rules p{font-size:11px;line-height:1.8}.text-button{border:0;background:none;color:var(--red);font-size:12px;padding:20px 0 0}.roulette-panel{background:#183f35;border:1px solid #285347;border-radius:24px;color:#fffaf0;text-align:center;overflow:hidden;min-width:0;padding:23px 30px 28px;position:relative;background-image:radial-gradient(ellipse at 50% 20%,#3d6252 0,transparent 65%);box-shadow:0 16px 30px #183f3514}.roulette-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.roulette-heading .eyebrow{color:#d2c39c;font-size:9px;letter-spacing:2px}.spark{font-size:23px;color:#dcc18b}.wheel-wrap{width:310px;height:310px;position:relative;margin:12px auto 25px;isolation:isolate}.wheel-wrap:before{content:'';position:absolute;inset:-9px;border:1px dashed #b79d665e;border-radius:50%}.wheel{position:relative;width:100%;height:100%;border:9px solid #eadfbd;border-radius:50%;overflow:hidden;box-shadow:0 0 0 4px #b1945b,0 18px 35px #0003;transition:transform 4s cubic-bezier(.14,.74,.12,1)}.wheel-label{position:absolute;top:50%;left:50%;width:50%;transform-origin:0 0;text-align:right;padding-right:23px;color:#fff9ec;font-size:16px;font-weight:650;text-shadow:0 1px 5px #0003;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff8e8;border:5px solid #d8bd86;border-radius:50%;width:76px;height:76px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;font-size:25px;box-shadow:0 3px 10px #0002;color:#7c6948}.wheel-center small{font-size:6px;font-weight:750;letter-spacing:1px}.pointer{position:absolute;z-index:2;top:-16px;left:calc(50% - 13px);border-left:13px solid transparent;border-right:13px solid transparent;border-top:30px solid #fff2d4;filter:drop-shadow(0 3px 2px #0005)}.action .eyebrow{color:#d7c28e;font-size:9px}.action h2{font-family:Georgia,serif;font-weight:400;letter-spacing:-.6px;font-size:28px;margin:12px 0}.action p{font-size:12px;line-height:1.7;color:#d0dbcf;min-height:21px;margin:10px auto;max-width:360px}.primary{border:0;border-radius:12px;padding:16px 24px;background:#bd5140;color:#fffaf2;font-size:13px;font-weight:650;box-shadow:0 4px 0 #903d32;transition:background .2s,translate .2s;min-height:48px}.primary:hover:enabled{background:#cf604d;translate:0 -1px}.action .primary{margin-top:10px;width:min(100%,310px)}.gift-settings{margin:36px 0 0;background:#fffef9;border:1px solid #e2e3d8;border-radius:22px;padding:28px}.gift-settings>.section-title h2{font-family:Georgia,serif;font-size:27px;font-weight:400}.gift-settings fieldset{border:0;padding:0;margin:0;min-width:0}.gift-settings label{display:block;font-size:11px;font-weight:650;line-height:1.6}.budget-bar{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#edf1e5;border-radius:14px;margin:22px 0;padding:18px 22px}.budget-bar label{font-size:15px}.budget-bar .muted{margin:5px 0 0}.money-input{display:flex;align-items:center;gap:10px;flex-shrink:0}.money-input input{width:125px;background:#fffef9;border-color:#c8d2ba;font-size:25px;padding:10px 15px}.money-input span{font-family:Georgia,serif;font-size:28px}.wish-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:22px}.wish-card{background:#faf8f1;border:1px solid #e6e4d8;border-radius:14px;padding:20px;min-width:0}.wish-card h3{font-family:Georgia,serif;font-size:25px;font-weight:400;color:#a34d3b;letter-spacing:-.5px;margin:0 0 18px;overflow-wrap:anywhere}.wish-card textarea{resize:vertical;min-height:100px;max-height:300px;margin:8px 0 16px;background:#fffefa;font-size:12px;line-height:1.7}.wish-card input{margin-top:8px;background:#fffefa;font-size:12px}.wish-card:focus-within{border-color:#b7c5a8}fieldset:disabled{opacity:.65}footer{text-align:center;color:#7c8975;font-size:8px;letter-spacing:1.6px;line-height:2;padding:30px 10px}footer span{color:#ac8950;padding:0 12px}dialog{border:1px solid #e1ddcd;border-radius:24px;padding:32px;color:var(--ink);background:#fffaf0;max-width:min(460px,92vw);max-height:90dvh;text-align:center;overflow-wrap:anywhere;box-shadow:0 25px 100px #0003}dialog::backdrop{background:#0d2922cf;backdrop-filter:blur(9px)}.gift{font-size:42px;margin-bottom:20px}dialog h2{font-family:Georgia,serif;font-size:24px;font-weight:400;margin-top:18px}dialog strong{display:block;font-family:Georgia,serif;font-size:52px;font-weight:400;color:var(--red);margin:16px 0}dialog p{font-size:12px;color:var(--muted);line-height:1.7}.budget-badge{background:#eaf0df;padding:12px;border-radius:9px;color:var(--ink)!important}.recipient-wishes{text-align:left;border-top:1px solid #e0dfd2;padding-top:10px;margin-top:18px}.recipient-wishes h3{font-size:12px;text-transform:uppercase;letter-spacing:1px}.recipient-wishes ul{max-height:160px;overflow:auto}.recipient-wishes li{font-size:13px;line-height:1.7;list-style:disc;margin-left:18px;padding:4px}.privacy{font-size:10px!important;margin-bottom:0}#error,#budget-error{font-size:12px;color:#a63d30;line-height:1.6}#error:empty,#budget-error:empty{display:none}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}:focus-visible{outline:3px solid #b69246;outline-offset:4px}#turn:focus{outline:none}@media(max-width:800px){main{padding:0 20px}.layout{grid-template-columns:270px minmax(0,1fr);gap:16px}.panel{padding:20px}.roulette-panel{padding:20px 14px}.wheel-wrap{width:260px;height:260px}.action h2{font-size:24px}.wish-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.journey{gap:20px}.intro:before,.intro:after{display:none}}@media(max-width:620px){header{padding:18px 20px}.brand>span{font-size:17px}.brand{font-size:30px}.tag{font-size:10px;padding:9px 11px}main{padding:0 16px}.intro{padding:34px 0 22px}h1{font-size:48px;letter-spacing:-2px}.intro p{font-size:12px;line-height:1.9}.eyebrow{font-size:8px;letter-spacing:1.5px}.journey{gap:12px;font-size:9px;margin:0 0 24px;flex-wrap:wrap}.layout{grid-template-columns:minmax(0,1fr);gap:18px}.panel{padding:22px}#participants{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:15px}#participants li{font-size:12px;gap:8px}.avatar{width:28px;height:28px}.remove{min-width:24px}.rules{margin-top:16px}.roulette-panel{padding:22px 18px 28px}.wheel-wrap{width:260px;height:260px;margin-bottom:28px}.gift-settings{padding:20px;margin-top:22px}.wish-grid{grid-template-columns:minmax(0,1fr)}.budget-bar{padding:16px;flex-wrap:wrap}.budget-bar label{font-size:13px}.gift-settings>.section-title h2{font-size:23px}dialog{padding:25px}footer{font-size:7px}.roulette-heading .eyebrow{font-size:8px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wheel{transition-duration:.01s}.primary{transition:none}}
 
 .wish-card summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:32px}.wish-card summary::-webkit-details-marker{display:none}.wish-card summary h3{margin:0}.wish-card summary span{font-size:10px;color:#7c805f;text-align:right;line-height:1.5}.wish-card[open] summary{padding-bottom:18px;margin-bottom:16px;border-bottom:1px solid #e1e2d5}.wish-card[open]{grid-row:span 2}.wish-grid{align-items:start}@media(max-width:620px){.wish-card{padding:17px}.wish-card[open]{grid-row:auto}}
-</style></head>
-<body><header><a href="./" class="brand">✳ <span>Secret Santa</span></a><a class="tag" href="#gift-title">✦ Budgets & souhaits</a></header>
-<main><section class="intro"><span class="eyebrow">LE RENDEZ-VOUS SECRET DE LA FAMILLE</span><h1>Un cadeau.<br>Un secret. <em>Votre Noël.</em></h1><p>Les petites attentions font les plus beaux cadeaux.<br>Réunissez la famille, faites tourner la roue… et gardez le secret.</p></section>
-<div class="journey"><span>01 · Réunissez la famille</span><span>02 · Notez vos envies</span><span>03 · Laissez faire le hasard</span></div><div class="layout"><section class="panel"><div class="section-title"><span class="step">01</span><h2>Les invités</h2></div><p class="muted">Tout le monde est là ? Ajustez la liste avant de commencer.</p><form id="add-form"><label class="sr-only" for="name">Prénom</label><input id="name" placeholder="Un prénom de plus…" maxlength="30" autocomplete="off"><button class="add" aria-label="Ajouter le participant">+</button></form><p id="error" role="alert"></p><ul id="participants"></ul><div class="rules"><span>✦</span><p>Chacun offre et reçoit un cadeau.<br>Ni doublon, ni tirage de soi-même.</p></div><button id="reset" class="text-button" hidden>↻ Recommencer le tirage</button></section>
-<section class="roulette-panel" aria-labelledby="turn"><div class="roulette-heading"><span class="eyebrow">LA ROUE DES PETITES ATTENTIONS</span><span class="spark">✧</span></div><div class="wheel-wrap"><div class="pointer"></div><div id="wheel" class="wheel"></div><div class="wheel-center">🎁<small>SECRET SANTA</small></div></div><div class="action"><span id="progress" class="eyebrow">LE HASARD FAIT BIEN LES CHOSES</span><h2 id="turn" tabindex="-1">On lance la magie ?</h2><p id="hint" aria-live="polite">Passez l’écran à la personne indiquée avant chaque tour.</p><button id="spin" class="primary">Lancer le tirage <span>↗</span></button></div></section></div>
-<section class="gift-settings" aria-labelledby="gift-title"><div class="section-title"><span class="step">02</span><h2 id="gift-title">La liste au Père Noël</h2></div><p class="muted">Un budget pour tous. Quelques indices pour chacun. Et la surprise reste entière.</p>
-<fieldset id="gift-fields"><legend class="sr-only">Budget et listes de souhaits</legend><div class="budget-bar"><div><label for="budget">Budget maximum commun</label><p class="muted">Par cadeau. Laissez le budget personnel vide pour utiliser ce plafond.</p></div><div class="money-input"><input id="budget" type="number" min="0" max="100000" step="0.01" value="50" required inputmode="decimal"><span>€</span></div></div><p id="budget-error" role="alert"></p><div id="wishlists" class="wish-grid"></div></fieldset><p id="save-status" class="muted" role="status">Enregistré sur cet appareil uniquement. Les souhaits sont visibles par tous ici.</p><p class="muted">Préparez vos envies avant le tirage. Les réglages seront ensuite verrouillés jusqu’au prochain tirage.</p></section>
+[hidden]{display:none!important}.auth-panel{max-width:460px;margin:0 auto 32px}.stack{display:flex;flex-direction:column;gap:10px;margin:18px 0}.stack label{font-size:12px;font-weight:650}.stack textarea{resize:vertical;line-height:1.7}.stack .primary{align-self:flex-start}.secondary{border:1px solid #c7d0bf;background:#fffaf0;color:#244c3c;border-radius:9px;padding:10px 14px;font-size:12px;min-height:42px}.notice{max-width:900px;margin:0 auto 22px;padding:14px 20px;background:#e7eddf;border-radius:12px;font-size:13px;line-height:1.7;overflow-wrap:anywhere}.notice:empty{display:none}.notice.error{color:#923b2c;background:#f7e3d9}.account-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0 25px;font-size:12px;overflow-wrap:anywhere}.family-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}.family-heading h2{font-family:Georgia,serif;font-size:28px;font-weight:400}.family-heading label{font-size:11px}select{max-width:100%;border:1px solid #c7d0bf;border-radius:9px;background:#fffaf0;padding:10px;font:inherit;color:var(--ink)}.member-status{font-size:9px;margin-left:auto;color:#657655;white-space:nowrap}.invite-button{background:#edf1e5;border:0;border-radius:7px;padding:8px 6px;font-size:10px;color:#355646}#participants li{flex-wrap:wrap}#preferences-form{max-width:650px}#budget-form{gap:6px}#budget-form input{min-width:0}#owner-budget>label{font-size:12px}#common-budget{font-size:12px}.wish-text{white-space:pre-wrap;font-size:13px;line-height:1.8;overflow-wrap:anywhere}#joined-count{font-size:12px;padding:14px}.account-bar>span{min-width:0}#my-wishes{min-height:120px}@media(max-width:620px){#participants{display:block}.family-heading{align-items:flex-start}.family-heading label{display:flex;align-items:center;gap:10px}.account-bar{font-size:10px}.account-bar button{flex-shrink:0}}
+</style></head><body>
+<header><a class="brand" href="./">✳ <span>Secret Santa</span></a><span class="tag">Notre Noël en famille</span></header>
+<main><section class="intro"><span class="eyebrow">CHACUN SON COMPTE. UN SEUL TIRAGE.</span><h1>Un cadeau.<br>Un secret. <em>Notre Noël.</em></h1><p>Vos envies se retrouvent. Les secrets se gardent.<br>Sur votre téléphone comme sur votre ordinateur.</p></section>
+<p id="message" class="notice" role="status" aria-live="polite"></p>
+<section id="configuration" class="panel auth-panel" hidden><h2>Relions votre espace familial</h2><p class="muted">L’organisateur doit encore relier le site à son projet Supabase. Les comptes et la sauvegarde partagée ne sont pas encore activés.</p><p class="muted">Les étapes sont dans le guide SUPABASE.md du dépôt. Aucune clé secrète ne doit être ajoutée au site.</p></section>
+<section id="auth" class="panel auth-panel" hidden><div class="section-title"><span class="step">01</span><h2>Bienvenue dans la famille</h2></div><p class="muted">Connectez-vous pour retrouver vos souhaits et votre destinataire.</p><p id="invite-hint" class="budget-badge" hidden>Une invitation vous attend. Connectez-vous ou créez un compte pour la rejoindre.</p><form id="auth-form" class="stack"><label for="email">Votre adresse e-mail</label><input id="email" type="email" required autocomplete="email" maxlength="254"><label for="password">Votre mot de passe</label><input id="password" type="password" required minlength="10" autocomplete="current-password"><button id="login" class="primary" type="submit">Me connecter →</button><button id="signup" class="secondary" type="button">Créer mon compte</button><button id="forgot" class="text-button" type="button">Mot de passe oublié ?</button></form><p class="muted">Lors de la création, choisissez un mot de passe d’au moins 10 caractères. Chaque personne utilise son propre compte.</p></section>
+<section id="recovery" class="panel auth-panel" hidden><h2>Nouveau mot de passe</h2><form id="recovery-form" class="stack"><label for="new-password">Au moins 10 caractères</label><input id="new-password" type="password" minlength="10" required autocomplete="new-password"><button class="primary">Enregistrer mon mot de passe</button></form></section>
+<div id="account" class="account-bar" hidden><span id="account-email"></span><button id="logout" class="secondary">Me déconnecter</button></div>
+<section id="welcome" class="panel auth-panel" hidden><h2>Votre Noël commence ici</h2><p class="muted">Si un proche a déjà créé la famille, ouvrez son lien d’invitation personnel. Sinon, créez votre espace.</p><form id="create-form" class="stack"><label for="family-name">Nom de votre espace</label><input id="family-name" value="Notre Noël en famille" required maxlength="60"><label for="my-name">Je suis…</label><select id="my-name"><option>Théo</option><option>Eva</option><option>Lea</option><option>Elio</option><option>Lucas</option><option>Ella</option></select><button class="primary">Créer notre famille →</button></form></section>
+<section id="family" hidden><div class="family-heading"><div><span class="eyebrow">VOTRE ESPACE PARTAGÉ</span><h2 id="family-title"></h2></div><label>Ma famille <select id="family-select" aria-label="Choisir une famille"></select></label><span id="sync-state" class="muted" role="status"></span></div>
+<div class="layout"><section class="panel"><div class="section-title"><span class="step">01</span><h2>Les invités</h2></div><p class="muted" id="members-hint"></p><ul id="participants"></ul><p class="rules" id="joined-count"></p><div id="owner-budget" hidden><label for="budget">Budget maximum commun (€)</label><form id="budget-form"><input id="budget" type="number" min="0" max="100000" step="0.01" required value="50" inputmode="decimal"><button class="secondary">Enregistrer</button></form></div><p id="common-budget" class="budget-badge"></p></section>
+<section class="roulette-panel"><div class="roulette-heading"><span class="eyebrow">UN TIRAGE. UN SECRET POUR CHACUN.</span><span class="spark">✧</span></div><div class="wheel-wrap"><div class="pointer"></div><div id="wheel" class="wheel"></div><div class="wheel-center">🎁<small>SECRET SANTA</small></div></div><div class="action"><span id="progress" class="eyebrow"></span><h2 id="turn" tabindex="-1"></h2><p id="hint"></p><button id="draw" class="primary" hidden>Effectuer le tirage familial →</button><button id="spin" class="primary" hidden>Découvrir mon destinataire →</button></div></section></div>
+<section class="gift-settings"><div class="section-title"><span class="step">02</span><h2>Mes envies, mes petits indices</h2></div><p class="muted">Vos souhaits sont visibles dans la famille. Vous seul pouvez modifier les vôtres. Les modifications se synchronisent en quelques secondes.</p><form id="preferences-form" class="stack"><label for="my-wishes">Ma liste de souhaits · une idée par ligne</label><textarea id="my-wishes" maxlength="1000" rows="4" placeholder="Un livre, un jeu, une sortie…"></textarea><label for="personal-budget">Mon plafond pour le cadeau que j’offre (€)</label><input id="personal-budget" type="number" min="0" max="100000" step="0.01" inputmode="decimal" placeholder="Utiliser le budget commun"><p class="muted">Le budget est verrouillé après le tirage. Vos souhaits peuvent toujours évoluer.</p><button class="primary">Enregistrer mes envies</button></form><h3>Les envies de la famille</h3><div id="wishlists" class="wish-grid"></div></section></section>
 <footer>SECRET SANTA <span>✦</span> LES PLUS BEAUX CADEAUX COMMENCENT PAR UNE ATTENTION</footer></main>
-<dialog id="reveal"><div class="gift">🎁</div><span class="eyebrow" id="giver"></span><h2>Vous offrez un cadeau à…</h2><strong id="recipient"></strong><p id="reveal-budget" class="budget-badge"></p><section class="recipient-wishes" aria-labelledby="reveal-wishes-title"><h3 id="reveal-wishes-title">Ses idées cadeaux</h3><ul id="reveal-wishes"></ul></section><p>Gardez ce petit secret jusqu’à Noël.</p><button id="next" class="primary">Cacher et passer au suivant →</button><p class="privacy">Révélation sur cet écran uniquement, sans envoi de message.</p></dialog><script>function randomInt(max) {
-  const limit = 4294967296 - (4294967296 % max);
-  const buffer = new Uint32Array(1);
-  do { crypto.getRandomValues(buffer); } while (buffer[0] >= limit);
-  return buffer[0] % max;
-}
-function draw(names) {
-  if (names.length < 2 || names.length > 30 || new Set(names.map(n => n.trim().toLocaleLowerCase('fr'))).size !== names.length || names.some(n => !n.trim())) throw new Error('Utilisez entre 2 et 30 prénoms distincts.');
-  let result;
-  do {
-    result = names.map((_, i) => i);
-    for (let i = result.length - 1; i > 0; i--) {
-      const j = randomInt(i + 1);
-      [result[i], result[j]] = [result[j], result[i]];
-    }
-  } while (result.some((recipient, giver) => recipient === giver));
-  return result;
-}
-
-
-let names = ['Eva', 'Théo', 'Lea', 'Elio', 'Lucas', 'Ella'];
-let budget = 50;
-let wishes = Object.create(null), personalBudgets = Object.create(null);
-let storageWarning = '';
-const storageKey = 'family-secret-santa-settings-v1';
-try {
-  const saved = JSON.parse(localStorage.getItem(storageKey));
-  if (saved && Array.isArray(saved.names) && saved.names.length <= 30 && saved.names.every(n => typeof n === 'string' && n.trim() && n.length <= 30) && new Set(saved.names.map(n => n.toLocaleLowerCase('fr'))).size === saved.names.length) {
-    names = saved.names;
-    if (Number.isFinite(saved.budget) && saved.budget >= 0 && saved.budget <= 100000) budget = saved.budget;
-    for (const name of names) {
-      if (typeof saved.wishes?.[name] === 'string') wishes[name] = saved.wishes[name].slice(0, 1000);
-      const amount = saved.personalBudgets?.[name];
-      if (Number.isFinite(amount) && amount >= 0 && amount <= 100000) personalBudgets[name] = amount;
-    }
-  }
-} catch { storageWarning = 'Sauvegarde locale indisponible : gardez cet onglet ouvert.'; }
-const euros = value => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(value);
-function saveSettings() {
-  try {
-    localStorage.setItem(storageKey, JSON.stringify({ names, budget, wishes, personalBudgets }));
-    $('save-status').textContent = 'Enregistré sur cet appareil uniquement. Les souhaits sont visibles par tous ici.';
-  } catch { $('save-status').textContent = 'Sauvegarde locale indisponible : vos modifications restent dans cet onglet uniquement.'; }
-}
-function renderGiftSettings() {
-  $('budget').value = budget;
-  $('gift-fields').disabled = !!assignments;
-  $('wishlists').replaceChildren();
-  names.forEach((name, i) => {
-    const card = document.createElement('details'); card.className = 'wish-card';
-    const summary = document.createElement('summary');
-    const count = document.createElement('span');
-    const updateCount = () => { const n = (wishes[name] || '').split('\n').filter(s => s.trim()).length; count.textContent = n ? `${n} idée${n > 1 ? 's' : ''} · Modifier +` : 'Ajouter mes envies +'; };
-    updateCount();
-    const heading = document.createElement('h3'); heading.textContent = name;
-    const label = document.createElement('label'); label.htmlFor = `wishes-${i}`; label.textContent = 'Ma liste de souhaits';
-    const textarea = document.createElement('textarea'); textarea.id = label.htmlFor; textarea.maxLength = 1000; textarea.rows = 4; textarea.placeholder = 'Un livre, un jeu, une sortie…\nUne idée par ligne'; textarea.value = wishes[name] || '';
-    textarea.oninput = () => { wishes[name] = textarea.value; updateCount(); saveSettings(); };
-    const amountLabel = document.createElement('label'); amountLabel.htmlFor = `amount-${i}`; amountLabel.textContent = 'Mon maximum pour le cadeau que j’offre (€)';
-    const amount = document.createElement('input'); amount.id = amountLabel.htmlFor; amount.type = 'number'; amount.min = '0'; amount.max = '100000'; amount.step = '0.01'; amount.inputMode = 'decimal'; amount.placeholder = `Budget commun : ${euros(budget)}`; amount.value = personalBudgets[name] ?? '';
-    amount.oninput = () => {
-      amount.setCustomValidity('');
-      if (!amount.validity.valid) { amount.setCustomValidity('Choisissez un montant entre 0 et 100 000 €, avec au maximum deux décimales.'); return; }
-      if (amount.value === '') delete personalBudgets[name]; else personalBudgets[name] = amount.valueAsNumber;
-      saveSettings();
-    };
-    summary.append(heading, count); card.append(summary, label, textarea, amountLabel, amount); $('wishlists').append(card);
-  });
-}
-let assignments = null, current = 0, rotation = 0, spinning = false;
+<dialog id="reveal"><div class="gift">🎁</div><span id="giver" class="eyebrow"></span><h2>Vous offrez un cadeau à…</h2><strong id="recipient"></strong><p id="reveal-budget" class="budget-badge"></p><section class="recipient-wishes"><h3>Ses idées cadeaux</h3><ul id="reveal-wishes"></ul></section><p>Ce résultat est sauvegardé. Vous le retrouverez à votre prochaine connexion.</p><button id="next" class="primary">Garder mon secret et fermer</button></dialog>
+<script>// Valeurs publiques uniquement. Ne jamais utiliser de clé secret/service_role.
+window.SANTA_CONFIG = { url: '', publishableKey: '' };
+</script><script>// Les attributions sont calculées et protégées par PostgreSQL, jamais dans ce fichier.
 const $ = id => document.getElementById(id);
-const colors = ['#2c6151', '#c45b4c', '#ac843d', '#568475', '#9e3f38', '#7d704d'];
-function render() {
-  renderGiftSettings();
-  $('participants').replaceChildren();
-  names.forEach((name, i) => {
-    const li = document.createElement('li');
-    const avatar = document.createElement('span'); avatar.className = 'avatar'; avatar.textContent = name[0].toUpperCase();
-    const label = document.createElement('span'); label.textContent = name;
-    const remove = document.createElement('button'); remove.className = 'remove'; remove.textContent = '×'; remove.setAttribute('aria-label', `Retirer ${name}`); remove.disabled = !!assignments;
-    remove.onclick = () => { names.splice(i, 1); delete wishes[name]; delete personalBudgets[name]; saveSettings(); render(); };
-    li.append(avatar, label, remove); $('participants').append(li);
-  });
-  $('wheel').replaceChildren();
-  $('wheel').style.background = names.length ? `conic-gradient(${names.map((_, i) => `${colors[i % colors.length]} ${i * 360 / names.length}deg ${(i + 1) * 360 / names.length}deg`).join(',')})` : '#dce1d4';
-  names.forEach((name, i) => {
-    const label = document.createElement('span'); label.className = 'wheel-label'; label.textContent = name;
-    label.style.transform = `rotate(${(i + .5) * 360 / names.length - 90}deg) translateY(-50%)`;
-    label.style.fontSize = names.length > 12 ? '10px' : '15px'; $('wheel').append(label);
-  });
-  $('name').disabled = !!assignments; document.querySelector('.add').disabled = !!assignments;
-  $('spin').disabled = names.length < 2 || current >= names.length || spinning;
-  $('reset').hidden = !assignments;
-  $('turn').textContent = assignments ? current < names.length ? `À vous, ${names[current]} !` : 'Tous les secrets sont distribués !' : 'Un petit tour, un grand secret.';
-  $('progress').textContent = assignments ? `${Math.min(current + 1, names.length)} / ${names.length} · LE TIRAGE EN FAMILLE` : `${names.length} PARTICIPANTS · AUCUN DOUBLON`;
-  $('spin').textContent = assignments ? spinning ? 'La magie opère…' : current >= names.length ? 'Les secrets sont distribués ✓' : 'Révéler mon destinataire →' : 'Préparer notre tirage →';
-  $('hint').textContent = current >= names.length && assignments ? 'Rendez-vous à Noël pour découvrir les cadeaux.' : assignments ? `Passez l’écran à ${names[current]}. Les autres, on ferme les yeux !` : 'Vérifiez vos budgets et vos souhaits ci-dessous, puis préparez le tirage.';
+const config = window.SANTA_CONFIG || {};
+function publicKey(key) { if (typeof key !== 'string') return false; if (key.startsWith('sb_publishable_')) return true; try { return JSON.parse(atob(key.split('.')[1].replace(/-/g,'+').replace(/_/g,'/'))).role === 'anon'; } catch { return false; } }
+const validConfig = /^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/.test(config.url || '') && publicKey(config.publishableKey);
+const base = (config.url || '').replace(/\/$/, '');
+const sessionKey = `santa-session:${base}`;
+let session = null, state = null, selected = null, busy = false, spinning = false, dirty = false, rotation = 0, timer = null, recovering = false;
+const money = cents => new Intl.NumberFormat('fr-FR', {style:'currency',currency:'EUR'}).format(cents / 100);
+const colors = ['#2c6151','#c45b4c','#ac843d','#568475','#9e3f38','#7d704d'];
+function message(text, error = false) { $('message').textContent = text; $('message').classList.toggle('error', error); }
+function storeSession(value) { session = value; if (value) localStorage.setItem(sessionKey, JSON.stringify(value)); else localStorage.removeItem(sessionKey); }
+function acceptSession(data) { if (!data.access_token || !data.refresh_token) throw Error('Session de connexion incomplète.'); storeSession({...data, expires_at: Date.now() + (data.expires_in || 3600) * 1000}); }
+async function request(path, body, token, method = 'POST') {
+ const response = await fetch(base + path, {method, headers:{apikey:config.publishableKey, ...(body ? {'Content-Type':'application/json'} : {}), ...(token ? {Authorization:`Bearer ${token}`} : {})}, ...(body ? {body:JSON.stringify(body)} : {})});
+ const data = await response.json().catch(() => null);
+ if (!response.ok) {
+  const text = data?.message || data?.msg || data?.error_description || data?.error || `Erreur ${response.status}`;
+  if (response.status === 401) throw Error('Session expirée : reconnectez-vous.');
+  const translated = {'Invalid login credentials':'E-mail ou mot de passe incorrect.','Email not confirmed':'Confirmez votre adresse e-mail avant de vous connecter.','User already registered':'Ce compte existe déjà. Connectez-vous.','Failed to fetch':'Connexion au serveur impossible.'};
+  throw Error(translated[text] || text);
+ }
+ return data;
 }
-$('add-form').onsubmit = e => {
-  e.preventDefault(); if (assignments) return;
-  const name = $('name').value.trim().normalize('NFC');
-  if (!name) { $('error').textContent = 'Saisissez un prénom.'; return; }
-  if (names.some(n => n.toLocaleLowerCase('fr') === name.toLocaleLowerCase('fr'))) { $('error').textContent = 'Ce prénom est déjà dans la famille. Ajoutez une initiale si besoin.'; return; }
-  if (names.length >= 30) { $('error').textContent = 'La roulette accepte au maximum 30 personnes.'; return; }
-  names.push(name); saveSettings(); $('name').value = ''; $('error').textContent = ''; render(); $('name').focus();
-};
-$('spin').onclick = () => {
-  if (spinning || current >= names.length || names.length < 2) return;
-  if (!assignments) { const invalid = [...$('gift-fields').querySelectorAll('input')].find(input => !input.checkValidity()); if (invalid) { const card = invalid.closest('details'); if (card) card.open = true; invalid.reportValidity(); return; } assignments = draw(names); render(); $('turn').focus(); $('turn').scrollIntoView({block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'}); return; }
-  spinning = true; render();
-  const target = assignments[current];
-  const destination = (360 - (target + .5) * 360 / names.length) % 360;
-  rotation += 5 * 360 + ((destination - rotation % 360 + 360) % 360);
-  $('wheel').style.transform = `rotate(${rotation}deg)`;
-  const duration = matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 4100;
-  setTimeout(() => {
-    spinning = false; $('giver').textContent = `LE PETIT SECRET DE ${names[current].toLocaleUpperCase('fr')}`;
-    $('recipient').textContent = names[target];
-    $('reveal-budget').textContent = `Votre budget maximum : ${euros(personalBudgets[names[current]] ?? budget)}`;
-    $('reveal-wishes').replaceChildren();
-    const ideas = (wishes[names[target]] || '').split('\n').map(s => s.trim()).filter(Boolean);
-    for (const idea of ideas.length ? ideas : ['Pas encore de souhait : une jolie surprise sera la bienvenue !']) {
-      const li = document.createElement('li'); li.textContent = idea; $('reveal-wishes').append(li);
-    }
-    $('reveal').showModal(); $('next').focus();
-  }, duration);
-};
-function next() { $('reveal').close(); $('recipient').textContent = ''; $('reveal-budget').textContent = ''; $('reveal-wishes').replaceChildren(); current++; render(); $('spin').focus(); }
-$('next').onclick = next;
-$('reveal').addEventListener('cancel', e => { e.preventDefault(); next(); });
-$('reset').onclick = () => {
-  if (spinning || !confirm('Effacer ce tirage et recommencer pour toute la famille ?')) return;
-  assignments = null; current = 0; $('error').textContent = ''; render();
-};
-$('budget').oninput = () => {
-  const input = $('budget');
-  if (!input.validity.valid) { $('budget-error').textContent = 'Indiquez un budget entre 0 et 100 000 €, avec au maximum deux décimales.'; return; }
-  budget = input.valueAsNumber; $('budget-error').textContent = ''; saveSettings();
-  names.forEach((_, i) => { $(`amount-${i}`).placeholder = `Budget commun : ${euros(budget)}`; });
-};
-render();
-if (storageWarning) $('save-status').textContent = storageWarning;
+let refreshing;
+async function accessToken(force = false) {
+ if (!session) throw Error('Connectez-vous.');
+ if (force || session.expires_at < Date.now() + 60000) {
+  if (!refreshing) refreshing = request('/auth/v1/token?grant_type=refresh_token', {refresh_token:session.refresh_token}).then(acceptSession).finally(() => { refreshing = null; });
+  await refreshing;
+ }
+ return session.access_token;
+}
+async function rpc(name, args = {}) { return request(`/rest/v1/rpc/santa_${name}`, args, await accessToken()); }
+async function action(fn) {
+ if (busy) return; busy = true; message('');
+ document.querySelectorAll('button,select').forEach(b => { b.dataset.wasDisabled = String(b.disabled); b.disabled = true; });
+ try { await fn(); } catch (e) { message(e.message === 'Failed to fetch' ? 'Connexion au serveur impossible. Vérifiez votre connexion Internet.' : e.message, true); }
+ finally { busy = false; document.querySelectorAll('[data-was-disabled]').forEach(b => { b.disabled = b.dataset.wasDisabled === 'true'; delete b.dataset.wasDisabled; }); if (state) renderState(); }
+}
+function authView() {
+ $('configuration').hidden = validConfig; $('auth').hidden = !validConfig || !!session || recovering;
+ $('recovery').hidden = !recovering; $('account').hidden = !session;
+ $('account-email').textContent = session?.user?.email || '';
+ $('invite-hint').hidden = !sessionStorage.getItem('santa-invite');
+}
+function renderState() {
+ if (!state) return;
+ $('family-title').textContent = state.name;
+ $('joined-count').textContent = `${state.members.filter(m=>m.joined).length} / ${state.members.length} personnes ont rejoint la famille`;
+ $('members-hint').textContent = state.is_owner ? 'Partagez chaque invitation uniquement avec la personne indiquée.' : 'Chaque prénom est associé à un compte personnel.';
+ $('participants').replaceChildren();
+ state.members.forEach(m => {
+  const li = document.createElement('li'); const avatar = document.createElement('span'); avatar.className='avatar'; avatar.textContent=m.name[0];
+  const label=document.createElement('span');label.textContent=`${m.name}${m.is_me?' · moi':''}`;
+  const status=document.createElement('span');status.className='member-status';status.textContent=m.joined?'✓ Connecté':'En attente';
+  li.append(avatar,label,status);
+  if (m.invite_token) { const button=document.createElement('button');button.className='invite-button';button.textContent='Invitation';button.onclick=()=>action(async()=>{
+   const url=new URL(location.href);url.search='';url.hash='';url.searchParams.set('invite',m.invite_token);
+   try { await navigator.clipboard.writeText(url.href);message(`Invitation de ${m.name} copiée. Envoyez-la uniquement à ${m.name}.`); }
+   catch { prompt(`Copiez le lien personnel de ${m.name} :`,url.href); }
+  });li.append(button); }
+  $('participants').append(li);
+ });
+ const me=state.members.find(m=>m.is_me);
+ $('owner-budget').hidden=!state.is_owner || !!state.drawn_at;
+ if (document.activeElement!==$('budget')) $('budget').value=state.budget_cents/100;
+ $('common-budget').textContent=`Budget commun : ${money(state.budget_cents)} maximum`;
+ if(!dirty) { $('my-wishes').value=me.wishes; $('personal-budget').value=me.budget_cents===null?'':me.budget_cents/100; }
+ $('personal-budget').disabled=!!state.drawn_at;
+ $('progress').textContent=state.drawn_at?'UN SEUL TIRAGE · SAUVEGARDÉ':'TOUS ENSEMBLE, AVANT LE GRAND SECRET';
+ $('turn').textContent=state.drawn_at?`Votre secret vous attend, ${me.name}.`:'Bientôt, la magie opère.';
+ $('hint').textContent=state.drawn_at?'Vous pouvez revoir le même destinataire à chaque connexion.':state.is_owner?'Attendez que chaque personne ait rejoint la famille, puis lancez le tirage une seule fois.':'L’organisateur lancera le tirage lorsque tout le monde aura rejoint la famille.';
+ $('draw').hidden=!state.is_owner || !!state.drawn_at;
+ $('draw').disabled=busy || state.members.some(m=>!m.joined);
+ $('spin').hidden=!state.drawn_at;$('spin').disabled=busy || spinning;
+ $('wheel').replaceChildren();
+ $('wheel').style.background=`conic-gradient(${state.members.map((m,i)=>`${colors[i%colors.length]} ${i*360/state.members.length}deg ${(i+1)*360/state.members.length}deg`).join(',')})`;
+ state.members.forEach((m,i)=>{const label=document.createElement('span');label.className='wheel-label';label.textContent=m.name;label.style.transform=`rotate(${(i+.5)*360/state.members.length-90}deg) translateY(-50%)`;$('wheel').append(label);});
+ $('wishlists').replaceChildren();
+ state.members.forEach(m=>{const card=document.createElement('details');card.className='wish-card';const summary=document.createElement('summary');const h=document.createElement('h3');h.textContent=m.name;const mark=document.createElement('span');mark.textContent='Ses envies +';summary.append(h,mark);const p=document.createElement('p');p.textContent=m.wishes||'Pas encore d’idée, la surprise est bienvenue.';p.className='wish-text';card.append(summary,p);$('wishlists').append(card);});
+}
+async function refresh() {
+ if (!selected || !session || recovering) return;
+ const family=selected; const next=await rpc('state',{p_family:family});
+ if (selected!==family) return;
+ state=next;renderState();$('sync-state').textContent=`À jour à ${new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}`;
+}
+async function loadFamilies(preferred) {
+ const families=await rpc('my_families');$('family-select').replaceChildren();
+ for(const f of families){const o=document.createElement('option');o.value=f.id;o.textContent=f.name;$('family-select').append(o);}
+ const remembered=preferred || localStorage.getItem(`${sessionKey}:family:${session.user.id}`);
+ selected=families.find(f=>f.id===remembered)?.id||families[0]?.id||null;
+ if(selected)localStorage.setItem(`${sessionKey}:family:${session.user.id}`,selected);
+ $('welcome').hidden=!!selected;$('family').hidden=!selected;
+ if(selected){$('family-select').value=selected;await refresh();}
+}
+async function connected() {
+ if(!session.user) { const user=await request('/auth/v1/user',null,await accessToken(),'GET'); storeSession({...session,user}); }
+ authView();if(recovering)return;
+ const invite=sessionStorage.getItem('santa-invite');let preferred;
+ if(invite){try{preferred=await rpc('join',{p_token:invite});message('Bienvenue dans votre famille !');}catch(e){message(e.message,true);}finally{sessionStorage.removeItem('santa-invite');history.replaceState({},'',location.pathname);}}
+ await loadFamilies(preferred);clearInterval(timer);timer=setInterval(()=>{if(!busy&&!spinning&&!document.hidden)refresh().catch(e=>{$('sync-state').textContent='Synchronisation interrompue — nouvelle tentative automatique.';});},8000);
+}
+$('auth-form').onsubmit=e=>{e.preventDefault();action(async()=>{const data=await request('/auth/v1/token?grant_type=password',{email:$('email').value.trim(),password:$('password').value});acceptSession(data);$('password').value='';await connected();});};
+$('signup').onclick=()=>{if(!$('auth-form').reportValidity())return;action(async()=>{const data=await request('/auth/v1/signup',{email:$('email').value.trim(),password:$('password').value});if(data.access_token){acceptSession(data);$('password').value='';await connected();}else message('Consultez votre e-mail pour confirmer votre compte, puis connectez-vous. Si aucun message n’arrive, contactez l’organisateur.');});};
+$('forgot').onclick=()=>{if(!$('email').reportValidity())return;action(async()=>{await request('/auth/v1/recover?redirect_to='+encodeURIComponent(location.origin+location.pathname),{email:$('email').value.trim()});message('Si ce compte existe et que l’envoi d’e-mails est configuré, un lien de réinitialisation vous sera envoyé.');});};
+$('recovery-form').onsubmit=e=>{e.preventDefault();action(async()=>{await request('/auth/v1/user',{password:$('new-password').value},await accessToken(),'PUT');$('new-password').value='';recovering=false;await connected();message('Mot de passe mis à jour.');});};
+$('logout').onclick=()=>action(async()=>{try{await request('/auth/v1/logout',{},await accessToken());}finally{clearInterval(timer);storeSession(null);state=null;selected=null;dirty=false;recovering=false;$('family').hidden=true;$('welcome').hidden=true;$('reveal').close();$('recipient').textContent='';$('reveal-wishes').replaceChildren();authView();}});
+$('create-form').onsubmit=e=>{e.preventDefault();action(async()=>{const id=await rpc('create_family',{p_name:$('family-name').value.trim(),p_my_name:$('my-name').value});await loadFamilies(id);message('Famille créée. Partagez les cinq invitations personnelles.');});};
+$('family-select').onchange=()=>action(async()=>{if(dirty&&!confirm('Changer de famille sans enregistrer vos modifications ?')){$('family-select').value=selected;return;}selected=$('family-select').value;localStorage.setItem(`${sessionKey}:family:${session.user.id}`,selected);dirty=false;await refresh();});
+$('budget-form').onsubmit=e=>{e.preventDefault();action(async()=>{await rpc('set_budget',{p_family:selected,p_budget_cents:Math.round($('budget').valueAsNumber*100)});await refresh();message('Budget commun enregistré pour toute la famille.');});};
+$('preferences-form').oninput=()=>{dirty=true;};
+$('preferences-form').onsubmit=e=>{e.preventDefault();action(async()=>{const wishes=$('my-wishes').value;const amount=$('personal-budget').value;await rpc('save_preferences',{p_family:selected,p_wishes:wishes,p_budget_cents:amount===''?null:Math.round(Number(amount)*100)});dirty=$('my-wishes').value!==wishes || $('personal-budget').value!==amount;await refresh();message(dirty?'Envies enregistrées. Vos dernières modifications restent à enregistrer.':'Vos envies sont enregistrées et partagées avec la famille.');});};
+$('draw').onclick=()=>{if(dirty){message('Enregistrez vos envies avant de lancer le tirage.',true);$('my-wishes').focus();return;}if(!confirm('Créer le tirage définitif pour toute la famille ? Il sera conservé pour tout le monde.'))return;action(async()=>{await rpc('draw',{p_family:selected});await refresh();message('Le tirage est sauvegardé. Chacun peut découvrir son destinataire sur son compte.');});};
+$('spin').onclick=()=>action(async()=>{
+ const target=await rpc('my_assignment',{p_family:selected});if(!target)throw Error('Le tirage n’est pas encore disponible.');
+ spinning=true;const index=state.members.findIndex(m=>m.id===target.recipient_id);const destination=(360-(index+.5)*360/state.members.length)%360;rotation+=1800+((destination-rotation%360+360)%360);$('wheel').style.transform=`rotate(${rotation}deg)`;
+ await new Promise(resolve=>setTimeout(resolve,matchMedia('(prefers-reduced-motion: reduce)').matches?20:4100));
+ spinning=false;$('giver').textContent='VOTRE PETIT SECRET';$('recipient').textContent=target.name;$('reveal-budget').textContent=`Votre maximum : ${money(target.budget_cents)}`;$('reveal-wishes').replaceChildren();
+ for(const idea of (target.wishes||'Une surprise sera la bienvenue !').split('\n').filter(s=>s.trim())){const li=document.createElement('li');li.textContent=idea;$('reveal-wishes').append(li);}
+ $('reveal').showModal();$('next').focus();
+});
+function closeSecret(){$('reveal').close();$('recipient').textContent='';$('reveal-wishes').replaceChildren();$('reveal-budget').textContent='';}
+$('next').onclick=closeSecret;$('reveal').addEventListener('cancel',e=>{e.preventDefault();closeSecret();});
+async function start(){
+ const invite=new URL(location.href).searchParams.get('invite');if(invite){sessionStorage.setItem('santa-invite',invite);history.replaceState({},'',location.pathname+location.hash);}
+ if(!validConfig){authView();return;}
+ try{session=JSON.parse(localStorage.getItem(sessionKey));}catch{session=null;}
+ const fragment=new URLSearchParams(location.hash.slice(1));if(fragment.get('access_token')){acceptSession({access_token:fragment.get('access_token'),refresh_token:fragment.get('refresh_token'),expires_in:Number(fragment.get('expires_in')||3600)});recovering=fragment.get('type')==='recovery';history.replaceState({},'',location.pathname);}
+ authView();if(session){await accessToken();await connected();}
+}
+start().catch(e=>{message(e.message,true);if(!state){clearInterval(timer);storeSession(null);authView();}});
 </script></body></html>

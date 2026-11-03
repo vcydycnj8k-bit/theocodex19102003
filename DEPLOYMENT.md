@@ -1,57 +1,30 @@
-# Mise en ligne préparée, non publiée
+# Mise en ligne de la version partagée
 
-L’environnement cloud publié est un environnement de développement : il ne constitue pas un hébergement web public permanent.
+Le site Netlify existant est https://stellar-bienenstitch-be8e88.netlify.app. Les mises à jour GitHub ne le redéploient pas automatiquement lorsqu’il a été créé avec Netlify Drop.
 
-## Paquet à déployer
+## Préparation nécessaire
 
-Depuis le dépôt, exécuter `python3 tools/build_release.py`.
-Le dossier `/workspace/secret-santa-release` contient les seuls fichiers publics : index.html autonome (styles et scripts intégrés), robots.txt et _headers. Une copie identique est générée dans le dossier site du dépôt.
-L’archive `/workspace/secret-santa.zip` a index.html à la racine. Aucun dossier Git, test, document interne, stockage navigateur ou secret n’est inclus. Les six prénoms par défaut font partie du code public.
+1. Créer le projet Supabase et installer `supabase/setup.sql`.
+2. Configurer Email/Auth et les URL de redirection, selon [SUPABASE.md](SUPABASE.md).
+3. Renseigner `config.js` avec l’URL et la clé publique seulement.
+4. Générer le paquet avec `python3 tools/build_release.py`.
+5. Vérifier l’inscription et le partage avec deux comptes réels avant le tirage final.
+6. Déposer le dossier public généré dans la rubrique Deploys du site Netlify existant, puis vérifier la version servie sur ordinateur et téléphone.
 
-Aucune compilation, base de données, fonction serveur ni clé API n’est nécessaire. Servir en HTTPS avec un hébergeur statique qui reconnaît les modules .mjs comme JavaScript. Ne pas publier l’ensemble du dépôt comme répertoire web.
+Un `index.html` autonome est livré pour éviter les fichiers CSS ou JS manquants. Le dossier public ne contient ni SQL, ni tests, ni mots de passe. Sa configuration contient uniquement les valeurs publiques nécessaires au client.
 
-## Hébergement et frais
+## Accès et frais
 
-Un hébergeur statique comme Netlify ou Cloudflare Pages peut convenir. Leurs offres gratuites peuvent suffire à un petit usage familial, sous réserve des quotas et des conditions en vigueur au moment de l’inscription. Aucun coût n’a été engagé. Vérifier la tarification officielle avant activation, notamment les dépassements, la protection privée et les options payantes :
-- https://www.netlify.com/pricing/
-- https://www.cloudflare.com/plans/developer-platform/
-- https://www.cloudflare.com/plans/zero-trust-services/
+Le lien du site est public, mais les données familiales nécessitent une connexion et une invitation personnelle. Les liens d’invitation sont des accès personnels à partager uniquement avec leur destinataire. Les moteurs de recherche sont invités à ne pas indexer le site ; cela ne constitue pas une authentification.
 
-Le sous-domaine fourni par l’hébergeur évite d’acheter un domaine. Un domaine personnel est facultatif et implique un achat puis un renouvellement annuel au tarif du registrar. Les fonctions de protection par mot de passe peuvent dépendre de l’offre. Les tarifs et quotas n’ont pas été vérifiés en direct depuis cet environnement.
+Les offres gratuites Netlify/Supabase peuvent convenir pour six personnes sous réserve des conditions et quotas actuels. Les vérifier avant activation. Aucun domaine payant n’est nécessaire. Un fournisseur SMTP peut être nécessaire pour la confirmation d’e-mail et la récupération de mot de passe ; il peut avoir ses propres quotas ou frais. Aucun compte fournisseur ni abonnement payant n’a été créé par l’assistant.
 
-## Confidentialité : choisir avant de déployer
+Tarifs officiels : https://supabase.com/pricing et https://www.netlify.com/pricing/.
 
-1. Lien public partagé seulement en famille : simple et potentiellement gratuit, mais toute personne possédant l’URL peut ouvrir le site. robots.txt et noindex réduisent la visibilité dans les moteurs respectueux ; ils ne protègent pas l’accès.
-2. Mot de passe contrôlé par l’hébergeur : convient à une famille si l’offre le permet. Le contrôle doit protéger aussi les fichiers JS et les URL alternatives. Ne pas mettre le mot de passe dans le JavaScript : il serait lisible.
-3. Accès réservé à des adresses e-mail autorisées, par exemple via un service tel que Cloudflare Access : préférable pour un accès privé. Nécessite une configuration de l’hébergeur, éventuellement un domaine, et la vérification de l’offre et du nombre d’utilisateurs. Restreindre les six personnes et protéger toutes les URL publiques, y compris celles de prévisualisation.
+## Vérifications et limites
 
-Le code ne contient actuellement ni compte utilisateur ni authentification. Un contrôle d’accès protège l’ouverture du site, pas le secret de chaque attribution vis-à-vis des autres personnes autorisées sur le même appareil.
+Les tests PostgreSQL locaux et le parcours de six navigateurs sont fournis dans `supabase/`. Auth et réseau Supabase sont simulés dans le test navigateur. Le véritable projet, ses e-mails et les connexions depuis les appareils n’ont pas été testés tant qu’il n’a pas été fourni et configuré.
 
-## Mise en ligne après choix et accord
+L’accès direct depuis cet environnement au domaine Netlify a été refusé par le proxy réseau. Une autorisation pour ce domaine a été enregistrée dans le brouillon d’environnement ; elle doit être appliquée via les paramètres avant cette vérification. Un refus du proxy n’est pas un diagnostic de panne Netlify.
 
-- Choisir l’hébergeur et le niveau de confidentialité, puis vérifier les frais présentés par le fournisseur.
-- Utiliser le compte du propriétaire, sans transmettre de secret dans le chat.
-- Pour un dépôt manuel statique (par exemple Netlify), sélectionner le dossier public uniquement ; aucun build à configurer. Ce dépôt déclenche une publication : ne l’effectuer qu’après accord sur l’accès.
-- Pour un accès privé, configurer la protection avant toute exposition publique de l’application. Si le fournisseur ne le permet pas avant le premier dépôt, conserver une page neutre jusqu’à ce que la protection soit vérifiée.
-- Vérifier HTTPS, chargement des modules, les six révélations, les souhaits et budgets sur ordinateur et téléphone. Pour un site privé, tester aussi le refus d’accès dans un navigateur non connecté et l’absence de contournement par une autre URL.
-
-## Limite entre appareils
-
-La même URL charge l’application sur ordinateur et téléphone, mais les participants, souhaits et budgets restent dans le stockage local de chaque navigateur. Ils ne sont pas transférés automatiquement lors de la mise en ligne. Chaque onglet possède son propre tirage, effacé au rechargement. Pour un tirage familial unique, faire les révélations sur un seul appareil, à tour de rôle. Un espace familial partagé avec souhaits synchronisés et attributions individuelles nécessite un serveur et des comptes ou invitations ; il n’est pas implémenté dans cette version.
-
-## Validation effectuée le 3 novembre 2026
-
-- Trois tests de tirage réussis, dont 10 000 permutations sans doublon ni auto-attribution.
-- Paquet public servi localement et contrôlé avec Chromium : six révélations, budgets commun et personnel, souhaits du bon destinataire, refus des budgets invalides, sauvegarde après rechargement, réinitialisation et aucune erreur JavaScript.
-- Affichage contrôlé à 320 et 390 pixels de largeur, sans débordement horizontal.
-- Réponses HTTP 200 et types MIME corrects pour les sources. Le paquet autonome ne charge aucun CSS ni module externe.
-- Deux contextes de navigateur indépendants confirment que les souhaits ne se synchronisent pas.
-
-Restent à vérifier après choix du fournisseur : URL HTTPS réelle sur les appareils, protection d’accès et facturation. Aucun compte d’hébergement n’a été utilisé et aucune publication Internet n’a été effectuée.
-
-
-## Refonte et paquet autonome
-
-La présentation a été revue avec une roulette sur fond vert sapin, des boutons de préparation et de révélation distincts, et une mise en page adaptée aux petits écrans. Le paquet autonome évite la dépendance aux chargements séparés de style.css, app.js et draw.mjs. Son parcours complet est vérifié via HTTP local. L’ouverture file:// n’a pas pu être testée, car le navigateur de cet environnement bloque ce protocole.
-
-L’accès à https://stellar-bienenstitch-be8e88.netlify.app depuis cet environnement renvoie un refus du proxy avant la connexion au site. Il ne s’agit pas d’un diagnostic du fonctionnement du site Netlify. Le domaine exact a été ajouté au brouillon réseau, sans remplacer les presets. L’application du réglage par les paramètres de l’environnement est nécessaire pour inspecter cette URL. La nouvelle version n’a pas été déposée dans le compte Netlify du propriétaire.
+La version partagée reste en attente de configuration publique Supabase. Ne pas remplacer le site utilisé par la famille avant d’avoir relié le projet. Les anciens tirages locaux ne peuvent pas être consolidés automatiquement : le tirage partagé démarre avec une nouvelle famille.

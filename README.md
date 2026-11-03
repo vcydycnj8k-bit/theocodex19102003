@@ -1,33 +1,42 @@
-# Secret Santa en famille
+# Secret Santa — espace familial partagé
 
-Application web en français, sans dépendance. Participants préremplis : Eva, Théo, Lea, Elio, Lucas et Ella.
+Application en français pour Eva, Théo, Lea, Elio, Lucas et Ella. Hébergement statique sur Netlify et comptes/base PostgreSQL sur Supabase.
 
-## Démarrage
+Chaque personne rejoint son prénom via une invitation personnelle, se connecte avec son propre compte, enregistre ses souhaits et son budget. L’organisateur fixe le plafond commun (50 € par défaut) et lance un tirage unique une fois les six personnes inscrites. Les attributions persistent après fermeture et reconnexion. Chaque compte ne peut consulter que son destinataire.
 
-Depuis le dépôt : `python3 -m http.server 3000 --bind 0.0.0.0`.
-Ouvrir l’application dans un navigateur via le serveur HTTP (les modules JavaScript ne se chargent pas par double-clic sur un fichier).
+## Première configuration
 
-## Utilisation
+Suivre [SUPABASE.md](SUPABASE.md). Installer le SQL dans Supabase puis renseigner l’URL et la clé publique dans `config.js`. Ne jamais y mettre une clé secrète ou service_role. Le projet distant n’est pas créé automatiquement.
 
-Modifier les participants puis lancer le tirage. Passer l’écran à la personne indiquée, faire tourner la roulette, lire le destinataire et cacher le résultat avant de passer au suivant. Chaque personne offre et reçoit exactement un cadeau, sans se tirer elle-même. Un mélange Fisher-Yates utilisant Web Crypto est répété jusqu’à obtenir une permutation sans point fixe, ce qui garde tous les tirages valides équiprobables.
+Sans configuration, le site affiche une page d’attente ; il ne prétend pas sauvegarder de données. La création des comptes, l’envoi des e-mails éventuels et les connexions réelles doivent être vérifiés sur le projet du propriétaire.
 
-Les résultats restent en mémoire dans l’onglet : recharger la page les efface. Les révélations sont une discrétion visuelle sur un appareil partagé, pas un système de comptes privés. Aucun message n’est envoyé et aucune donnée n’est stockée sur un serveur.
+## Développement
 
-## Vérification
+Depuis le dépôt : `python3 -m http.server 3000 --bind 0.0.0.0`. Ouvrir via HTTP. Aucun paquet n’est requis par l’application : les échanges Auth et RPC utilisent fetch.
 
-`node --test draw.test.mjs`
+La session personnelle est conservée dans le navigateur, les souhaits et attributions dans Supabase. Les données de la famille sont relues toutes les huit secondes lorsque l’onglet est visible. Seuls les champs explicitement enregistrés sont transmis. Les champs en cours d’édition sont préservés.
 
-## Budgets et idées cadeaux
+## Paquet Netlify
 
-Le budget maximum commun est de 50 € par défaut. Chaque participant peut définir son propre plafond pour le cadeau qu’il offre ; un champ vide reprend le plafond commun. Les montants acceptés vont de 0 à 100 000 €, avec deux décimales au maximum.
+`python3 tools/build_release.py` produit :
+- `site/index.html` autonome, avec styles, configuration publique et scripts intégrés ;
+- `site/robots.txt` et `site/_headers` ;
+- `/workspace/secret-santa.zip` prêt à extraire et à déposer dans Netlify.
 
-Chaque participant dispose d’une liste de souhaits (une idée par ligne, 1 000 caractères maximum). À chaque révélation, le Secret Santa voit les souhaits de son destinataire et son propre budget maximum. Les budgets et les souhaits sont verrouillés pendant le tirage ; recommencer le tirage les conserve et permet de les modifier.
+Après configuration et vérification, déposer le dossier `site` dans les déploiements du site existant pour conserver son URL. Ne pas publier l’ensemble du dépôt. Le ZIP à la racine du dépôt est une copie préparée pour le téléchargement depuis GitHub ; le rafraîchir après génération si nécessaire.
 
-Les participants, budgets et souhaits sont sauvegardés dans le stockage local du navigateur. Ils restent sur cet appareil et ne sont pas synchronisés entre téléphones. Les souhaits sont visibles par toutes les personnes utilisant cette page. En cas de stockage indisponible, un message le signale et les réglages restent seulement dans l’onglet. Les attributions ne sont jamais sauvegardées et disparaissent au rechargement.
+## Tests
 
+Installer les outils de test dans un dossier séparé (pas de dépendance à installer pour héberger le site) :
 
-## Version autonome pour Netlify
+```
+npm install --prefix /tmp/santa-tests --no-package-lock @electric-sql/pglite playwright
+NODE_PATH=/tmp/santa-tests/node_modules node supabase/security.test.cjs
+NODE_PATH=/tmp/santa-tests/node_modules node supabase/browser.test.cjs
+```
 
-Exécuter `python3 tools/build_release.py` pour générer `site/index.html` : ce fichier contient tous les styles et scripts, sans requête externe. Le dossier `site` est prêt à être déposé dans Netlify. Le ZIP `secret-santa.zip` contient ce même index à sa racine, ainsi que robots.txt et _headers. Après extraction, déposer le dossier contenant index.html dans la section Deploys du site Netlify existant pour conserver son URL. Aucun build n’est nécessaire.
+Le test navigateur utilise `/usr/bin/chromium` et le port local 3099. Adapter le chemin si nécessaire. Il charge `site/index.html` généré avec configuration vide, puis injecte un projet fictif réservé au test.
 
-Le code dans la racine du dépôt reste la version de développement avec fichiers séparés. La version autonome est générée à partir de ces sources ; ne pas la modifier directement.
+Le test SQL vérifie les rôles et permissions, les invitations, l’isolation de familles, les plafonds, les contraintes d’attribution et l’idempotence du tirage. Le test navigateur utilise six comptes distincts et le vrai SQL ; les endpoints Auth/API sont simulés. Ces tests ne remplacent pas la vérification du vrai service Supabase et des connexions depuis les appareils de la famille.
+
+Pour une nouvelle année, créer un autre espace familial ; aucun bouton n’efface le tirage existant. Les anciennes données locales ne sont pas transférées automatiquement.

@@ -3,16 +3,31 @@ from pathlib import Path
 from zipfile import ZipFile, ZIP_DEFLATED
 import hashlib
 import json
+import re
+import base64
 
 root = Path(__file__).resolve().parents[1]
 output = Path('/workspace/secret-santa-release')
 output.mkdir(exist_ok=True)
 html = (root / 'index.html').read_text()
 css = (root / 'style.css').read_text()
-draw = (root / 'draw.mjs').read_text().replace('export function ', 'function ')
-app = (root / 'app.js').read_text().replace("import { draw } from './draw.mjs';", '')
+config = (root / 'config.js').read_text()
+match = re.search(r"publishableKey\s*:\s*(['\"])(.*?)\1", config)
+if not match:
+    raise ValueError('Configuration publique non reconnue.')
+key = match.group(2)
+if key and not key.startswith('sb_publishable_'):
+    try:
+        payload = key.split('.')[1]
+        role = json.loads(base64.urlsafe_b64decode(payload + '=' * (-len(payload) % 4)))['role']
+    except Exception:
+        role = None
+    if role != 'anon':
+        raise ValueError('Utilisez uniquement une clé publishable ou anon, jamais secret/service_role.')
+app = (root / 'app.js').read_text()
 html = html.replace('<link rel="stylesheet" href="style.css">', '<style>' + css + '</style>')
-html = html.replace('<script type="module" src="app.js"></script>', '<script>' + draw + '\n' + app + '</script>')
+html = html.replace('<script src="config.js"></script>', '<script>' + config + '</script>')
+html = html.replace('<script type="module" src="app.js"></script>', '<script>' + app + '</script>')
 contents = {'index.html': html.encode()}
 for stale in ['style.css', 'app.js', 'draw.mjs']:
     (output / stale).unlink(missing_ok=True)
